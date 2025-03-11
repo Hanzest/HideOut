@@ -16,6 +16,8 @@ namespace HideOut
         private int _tileSize;
         private int _roomSize;
         private int _adder;
+        private bool _isClear;
+        private bool _isPlayerEnter;
         public Room(int roomNumber, int adder) // 0: Start, 1: End, 2: Normal Room, 3: Path
         {
             _tileSize = 48;
@@ -36,8 +38,9 @@ namespace HideOut
             {
                 _roomArray = new int[_roomSize, _roomSize];
             }
-
             _adder = adder;
+            _isClear = false;
+            _isPlayerEnter = false;
         }
         public int TileSize
         {
@@ -63,6 +66,32 @@ namespace HideOut
         {
             get { return _roomSize; }
         }
+        public bool IsClear
+        {
+            get { return _isClear; }
+        }
+        public bool IsPlayerEnter
+        {
+            get { return _isPlayerEnter; }
+        }
+        public void UpdateRoom(HashSet<Character> characters)
+        {
+            int cnt = 0;
+            foreach (Character c in characters)
+            {
+                if(c.Type != CharacterType.Player && c.RoomNumber == _roomNumber)
+                {
+                    cnt++;
+                } else if(c.Type == CharacterType.Player && c.RoomNumber == _roomNumber)
+                {
+                    _isPlayerEnter = true;
+                }
+            }
+            if(cnt == 0)
+            {
+                _isClear = true;
+            }
+        }
 
         // Generate 2d array of a room
         //  A room is aligned center and justified center
@@ -78,11 +107,11 @@ namespace HideOut
         // 0: Start, 1: End, 2: Normal Room, 3: Path
 
         // Normal Room:         Start:               End:                 Path:
-        // 2 1 1 1 1 1 2        2 1 1 1 2            2 1 1 1 2            2 1 1 1 2
+        // 2 1 1 1 1 1 2        2 1 1 1 2            2 1 1 1 2            1 1 1 1 1
         // 2 0 0 0 0 0 2        2 0 0 0 0            0 0 0 0 2            0 0 0 0 0
         // 0 0 0 0 0 0 0        2 0 0 0 0            0 0 0 0 2            0 0 0 0 0
         // 0 0 0 0 0 0 0        2 0 0 0 0            0 0 0 0 2            0 0 0 0 0
-        // 0 0 0 0 0 0 0        2 1 1 1 2            2 1 1 1 2            2 1 1 1 2
+        // 0 0 0 0 0 0 0        2 1 1 1 2            2 1 1 1 2            1 1 1 1 1
         // 2 0 0 0 0 0 2
         // 2 1 1 1 1 1 2
 
@@ -112,7 +141,11 @@ namespace HideOut
                                4 <= j && j <= _roomSize - 5 && _roomNumber == 2)
                             {
                                 int rnd2 = SplashKit.Rnd(0, 100);
-                                if (rnd2 < 2)
+                                if (rnd2 < 10 && _roomArray[i, j - 1] != 3 && _roomArray[i, j - 2] != 3 && _roomArray[i, j - 3] != 3 && _roomArray[i, j - 4] != 3
+                                                && _roomArray[i - 1, j] != 3 && _roomArray[i - 2, j] != 3 && _roomArray[i - 3, j] != 3 && _roomArray[i - 4, j] != 3
+                                                && _roomArray[i - 1, j - 1] != 3 && _roomArray[i - 1, j - 2] != 3 && _roomArray[i - 1, j - 3] != 3
+                                                && _roomArray[i - 2, j - 1] != 3 && _roomArray[i - 2, j - 2] != 3 && _roomArray[i - 2, j - 3] != 3
+                                                && _roomArray[i - 3, j - 1] != 3 && _roomArray[i - 3, j - 2] != 3 && _roomArray[i - 3, j - 3] != 3)
                                 {
                                     _roomArray[i, j] = 3;
                                 }
@@ -123,6 +156,7 @@ namespace HideOut
                 switch (_roomNumber)
                 {
                     case 0:
+                        // Start Room
                         for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
                         {
                             _roomArray[i, _roomSize - 1] = 0;
@@ -130,6 +164,7 @@ namespace HideOut
                         _roomArray[_roomSize / 2 - 3, _roomSize - 1] = 1;
                         break;
                     case 1:
+                        // End Room
                         for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
                         {
                             _roomArray[i, 0] = 0;
@@ -137,10 +172,11 @@ namespace HideOut
                         _roomArray[_roomSize / 2 - 3, 0] = 1;
                         break;
                     case 2:
+                        // Normal room
                         for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
                         {
                             _roomArray[i, 0] = 0;
-                            _roomArray[i, _roomSize - 1] = 0;
+                            //_roomArray[i, _roomSize - 1] = 0;
                         }
                         _roomArray[_roomSize / 2 - 3, _roomSize - 1] = 1;
                         _roomArray[_roomSize / 2 - 3, 0] = 1;
@@ -168,6 +204,10 @@ namespace HideOut
         public int [,] RoomArray{
             get { return _roomArray; }
         }
+        public int RoomNumber
+        {
+            get { return _roomNumber; }
+        }
         public string CoordinatePosition(int x, int y)
         {
             if(x >= RoomLength / TileSize || x < 0)
@@ -189,6 +229,14 @@ namespace HideOut
                     return "Barrier";
                 default:
                     return "Unknown";
+            }
+        }
+        public void Lock()
+        {
+            Console.WriteLine(RoomNumber);
+            for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
+            {
+                _roomArray[i, 0] = 2;
             }
         }
     }

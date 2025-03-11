@@ -12,25 +12,42 @@ namespace HideOut
         private string _name;
         private float _x;
         private float _y;
-        private float _speed;
+        private float _velocity;
         private double _angle;
         private float _dx;
         private float _dy;
         private int _damage;
         private bool _collided;
         private bool _isCritical;
-        public Projectile(string collision, string name, float x, float y, float speed, int damage , bool isCritical, float ex, float ey)
+        private int _tick;
+        private bool _exist;
+        private CharacterType _shootBy;
+        private int _width;
+        private int _height;
+        public Projectile(string collision, string name, float x, float y, float velocity, int damage , bool isCritical, double angle, int weaponWidth, CharacterType shootBy, int width, int height)
         {
             _collision = collision;
             _name = name;
-            _x = x;
-            _y = y;
-            _speed = speed;
+            _velocity = velocity;
             _damage = damage;
             _isCritical = isCritical;
-            _angle = Math.Atan2(ey - y, ex - x);
-            _dx = (float)Math.Cos(_angle) * speed;
-            _dy = (float)Math.Sin(_angle) * speed;
+            _angle = angle;
+            _dx = (float)Math.Cos(_angle) * velocity;
+            _dy = (float)Math.Sin(_angle) * velocity;
+            if (collision == "null")
+            {
+                _tick = 6;
+            }
+            else
+            {
+                _tick = -1;
+            }
+            _x = x + weaponWidth * (float)Math.Cos(_angle);
+            _y = y + weaponWidth * (float)Math.Sin(_angle);
+            _shootBy = shootBy;
+            _width = width;
+            _height = height;
+            _exist = true;
         }
         public string Collision
         {
@@ -38,7 +55,7 @@ namespace HideOut
         }
         public string Name
         {
-            get { return $"{_name}Bullet"; }
+            get { return $"{_name}"; }
         }
         public float X
         {
@@ -49,31 +66,54 @@ namespace HideOut
             get { return _y; }
         }
         public double Angle
-            // _angle is in radians
-            // return type is degrees.
+            // Angle is in Radian
         {
-            get { return _angle * 180 / Math.PI; }
+            get { return _angle; }
         }
-        public float Damage
+        public int Damage
         {
-            get { return _damage; }
+            get { return (_isCritical) ? _damage : _damage * 2; }
+            set {  _damage = value; }
         }
         public bool Collided
         {
             get { return _collided; }
+            set { _collided = value; }
+        }
+        public int Width
+        {
+            get { return _width; }
+        }
+        public int Height
+        {
+            get { return _height; }
+        }
+        public CharacterType ShootBy
+        {
+            get { return _shootBy; }
         }
         public void Move(Room[] rooms)
         {
             // Slightly up for 8 pixel for 3D effects
-            if(CheckValidMove(_x + _dx, _y - 8 + _dy, rooms))
+            if(_tick < 0)
             {
-                _x += _dx;
-                _y += _dy;
-            }
-            else
+                if (CheckValidMove(_x + _dx, _y - 8 + _dy, rooms))
+                {
+                    _x += _dx;
+                    _y += _dy;
+                }
+                else
+                {
+                    _collided = true;
+                }
+            } else
             {
-                _collided = true;
+                _tick--;
+                if(_tick == 0) {
+                    _collided = true;
+                }
             }
+            
         }
         public bool CheckValidMove(float x, float y, Room[] rooms)
         {

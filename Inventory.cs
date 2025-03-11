@@ -8,29 +8,100 @@ namespace HideOut
 {
     public class Inventory
     {
+        private int _index;
         private int _maxSize;
         private List<Item> _items;
         public Inventory(int maxSize)
         {
-            _items = new List<Item>();
+            _index = -1;
             _maxSize = maxSize;
+            _items = new List<Item>();
         }
-        public void Add(Item item)
+        public void Add(Item item, Character c)
         {
+            
             if(_items.Count == _maxSize)
             {
-                Console.WriteLine("Inventory is full");
+                GetItem.Display = true;
+                GetItem.InInventory = false;
+                _items.Remove(GetItem);
+                _items.Add(item);
                 return;
+            } else
+            {
+                
+                if(c.Type == CharacterType.RangeEnemy)
+                {
+                    RangeWeapon rangeWeapon = (RangeWeapon)item;
+                    rangeWeapon.AttackCoolDown *= 2;
+                }
+                _items.Add(item);
+                item.InInventory = true;
+                IncrementIndex();
             }
-            _items.Add(item);
         }
-        public void Remove(Item item)
+        public void UpdateItemPosition(Character c)
         {
-            _items.Remove(item);
+            foreach (Item item in _items)
+            {
+                if(item != GetItem)
+                {
+                    item.Display = false;
+                } else
+                {
+                    item.Display = true;
+                }
+                    switch (item.Type)
+                    {
+                        case ItemType.MeleeWeapon:
+                            MeleeWeapon mWeapon = (MeleeWeapon)item;
+                            mWeapon.AttackTick();
+                            if (c.FaceLeft)
+                                mWeapon.X = c.X - 20;
+                            else
+                                mWeapon.X = c.X + 20;
+                            mWeapon.Y = c.Y + 20;
+                            break;
+                        case ItemType.RangeWeapon:
+                            item.X = c.X;
+                            item.Y = c.Y + 20;
+                            break;
+                    }
+            }
         }
-        public List<Item> Items
+        public Item GetItem
         {
-            get { return _items; }
+            get {
+                if(_items.Count == 0)
+                {
+                    return null;
+                }
+                return _items[_index]; 
+            }
+        }
+        public int Count
+        {
+            get { return _items.Count; }
+        }
+
+        public void IncrementIndex()
+        {
+            if(_items.Count == 0)
+            {
+                Index = 0;
+            } else
+            {
+                Index = (Index + 1) % _items.Count;
+            }
+        }
+        public void DecrementIndex()
+        {
+            Index = (Index - 1) % _items.Count;
+        }
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value; }
         }
     }
 }

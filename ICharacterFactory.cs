@@ -8,6 +8,6 @@ namespace HideOut
 {
     public interface ICharacterFactory
     {
-        Character Create(string name, int health, CharacterType type, int x, int y, float velocity);
+        Character? Create(string name, float x, float y);
     }
 }

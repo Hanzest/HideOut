@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,16 +13,22 @@ namespace HideOut
         private float _x;
         private float _y;
         private bool _inInventory;
+        private bool _display;
         private string _name;
         private bool _exist;
+        private double _angle;
+        protected bool _faceLeft;
         public Item(ItemType type, string name, bool inInventory, float x, float y)
         {
             _type = type;
             _name = name;
+            _display = true;
             _inInventory = inInventory;
             _x = x;
             _y = y;
+            _angle = 0;
             _exist = true;
+            _faceLeft = false;
         }
         public ItemType Type
         {
@@ -34,10 +41,17 @@ namespace HideOut
         public float X
         {
             get { return _x; }
+            set { _x = value; }
         }
         public float Y
         {
             get { return _y; }
+            set { _y = value; }
+        }
+        public bool Display
+        {
+            get { return _display; }
+            set { _display = value; }
         }
         public bool Exist
         {
@@ -48,6 +62,16 @@ namespace HideOut
         {
             get { return _inInventory; }
             set { _inInventory = value; }
+        }
+        public double Angle
+        {
+            get { return _angle; }
+            set { _angle = value; }
+        }
+        public bool FaceLeft
+        {
+            get { return _faceLeft; }
+            set { _faceLeft = value; }
         }
         public Point2D Coordinate()
         {

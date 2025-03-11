@@ -22,10 +22,10 @@ namespace HideOut
         }
         public void UpdateTheme(int theme)
         {
-            string curPath = $"{_path}\\{theme}\\";
+            string curPath = $"{_path}{theme}\\";
             _floor[0] = new Bitmap("floor0", curPath + "floor0.png");
-            _floor[1] = new Bitmap("floor1", curPath + "floor0.png");
-            _floor[2] = new Bitmap("floor2", curPath + "floor0.png");
+            _floor[1] = new Bitmap("floor1", curPath + "floor1.png");
+            _floor[2] = new Bitmap("floor2", curPath + "floor2.png");
             _barrier = new Bitmap("barrier", curPath + "barrier.png");
             _hwall = new Bitmap("hwall", curPath + "hwall.png");
             _vwall = new Bitmap("vwall", curPath + "vwall.png");

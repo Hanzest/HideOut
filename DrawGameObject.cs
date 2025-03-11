@@ -40,13 +40,17 @@ namespace HideOut
                     }
                     break;
                 case ClassType.Effect:
-                    for (int i = 1; i <= 4; i++)
+                    int q = 4;
+                    if (name == "slash" || name == "paleslash")
+                        q = 8;
+                    for (int i = 1; i <= q; i++)
                     {
                         _bitmap.Add(new Bitmap($"{name}{i}", $"{_pathEffect}{name}{i}.png"));
                     }
                     break;
                 case ClassType.Item:
                     _bitmap.Add(new Bitmap(name, $"{_pathItem}{name}.png"));
+                    _bitmap.Add(new Bitmap($"flip{name}", $"{_pathItem}flip{name}.png"));
                     break;
                 case ClassType.Projectile:
                     _bitmap.Add(new Bitmap(name, $"{_pathProjectile}{name}.png"));
@@ -78,10 +82,10 @@ namespace HideOut
         {
             foreach (Effect effect in effects)
             {
-                Bitmap bmp = GetBitmap($"{effect.Name}{effect.TickCounter / 4 + 1}");
+                Bitmap bmp = GetBitmap($"{effect.Name}{effect.Index()}");
                 if (bmp == null)
                 {
-                    Console.WriteLine($"{effect.Name}{effect.TickCounter / 4 + 1}");
+                    Console.WriteLine($"{effect.Name}{effect.Index()}");
                 }
                 if (bmp != null)
                 {
@@ -96,14 +100,55 @@ namespace HideOut
                 }
             }
         }
-        public void Draw(HashSet<Item> items)
+        public void Draw(HashSet<Item> items, double angle)
         {
             foreach (Item item in items)
             {
-                Bitmap bmp = GetBitmap(item.Name);
-                if (bmp != null)
+                if (item.Display)
                 {
-                    bmp.Draw(item.X - bmp.Width / 2, item.Y - bmp.Height / 2);
+                    Bitmap bmp = GetBitmap(item.Name);
+                    
+                    if (bmp != null)
+                    {
+                        
+                        if (item.InInventory)
+                        {
+                            switch (item.Type)
+                            {
+                                case ItemType.RangeWeapon:
+                                    // Fix Dir: where the item pointed at
+                                    if (Math.Abs(item.Angle) < 1.57)
+                                    {
+                                        bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, item.Angle);
+                                    }
+                                    else
+                                    {
+                                        bmp = GetBitmap("flip" + item.Name);
+                                        if (bmp != null)
+                                            bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, -Math.PI + item.Angle);
+                                    }
+                                    break;
+                                case ItemType.MeleeWeapon:
+                                    MeleeWeapon mWeapon = (MeleeWeapon)item;
+                                    if (Math.Abs(item.Angle) < 1.57)
+                                    {
+                                        bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, mWeapon.Angle);
+                                    }
+                                    else
+                                    {
+                                        bmp = GetBitmap("flip" + item.Name);
+                                        if (bmp != null)
+                                            bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, - mWeapon.Angle);
+                                    }
+                                    break;
+                            }
+                            
+                            
+                        } else
+                        {
+                            bmp.Draw(item.X - bmp.Width / 2, item.Y - bmp.Height / 2);
+                        }
+                    }
                 }
             }
         }
@@ -114,9 +159,15 @@ namespace HideOut
                 Bitmap projectile = GetBitmap(p.Name);
                 if (projectile != null)
                 {
-                    projectile.DrawRotated(p.X - 8, p.Y - 8, p.Angle);
+                    projectile.DrawRotated(p.X - projectile.Width/2, p.Y - projectile.Height/2, p.Angle);
                 }
             }
+        }
+        public void DrawPrioritizedItem(Item item, double angle)
+        {
+            HashSet<Item> items = new HashSet<Item>();
+            items.Add(item);
+            Draw(items, item.Angle);
         }
     }
 }

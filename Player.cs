@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,31 +9,40 @@ namespace HideOut
 {
     public class Player : Character
     {
+        private int _coin;
         private int _armor;
         private int _maxArmor;
         private int _energy;
         private int _maxEnergy;
+        private int _armorTick;
+        private int _maxArmorTick;
+        private Inventory _inventory;
         // Player size: 96 x 128
-        public Player(string name, int health, CharacterType type, int x, int y, float velocity) : base(name, health, type)
+        public Player(string name, int health, int maxEnergy, int maxArmor, CharacterType type, float x,float y, float velocity, int width, int height) : base(name, health, type, width, height)
         {
             X = x;
             Y = y;
-            _maxEnergy = 200;
-            _energy = 200;
-            _armor = 30;
-            _maxArmor = 30;
+            _maxEnergy = maxEnergy;
+            _energy = maxEnergy;
+            _armor = maxArmor;
+            _maxArmor = maxArmor;
             Velocity = velocity;
+            _inventory = new Inventory(2);
+            _armorTick = 80;
+            _maxArmorTick = 80;
+            _coin = 0;
         }
-        public void SetUp(int armor, int energy)
+        public void RegenerateArmor()
         {
-            _armor = armor;
-            _maxArmor = armor;
-            _energy = energy;
-            _maxEnergy = energy;
-        }
-        public void UseItem()
-        {
-
+            if (_armorTick == _maxArmorTick)
+            {
+                ArmorChanged(2);
+                _armorTick -= 5;
+            }
+            else if (_armorTick < _maxArmorTick)
+            {
+                _armorTick++;
+            }
         }
         public int Armor
         {
@@ -44,6 +54,16 @@ namespace HideOut
             get { return _maxArmor; }
             set { _maxArmor = value; }
         }
+        public void ArmorChanged(int value)
+        {
+            if(_armor + value > _maxArmor)
+            {
+                _armor = _maxArmor;
+            } else
+            {
+                _armor += value;
+            }
+        }
         public int Energy
         {
             get { return _energy; }
@@ -53,6 +73,10 @@ namespace HideOut
         {
             get { return _maxEnergy; }
             set { _maxEnergy = value; }
+        }
+        public Inventory Inventory
+        {
+            get { return _inventory; }
         }
         public void EnergyChanged(int value)
         {
@@ -65,7 +89,7 @@ namespace HideOut
                 _energy = 0;
             }
         }
-        public void TakeDamage(int value, Point2D dir, Room[] rooms)
+        public override void TakeDamage(int value, Point2D dir, Room[] rooms)
         {
             if (_armor - value > _maxArmor)
             {
@@ -74,11 +98,12 @@ namespace HideOut
             else
             {
                 _armor -= value;
-                if (CheckValidMove(X + dir.X * 1.5f, Y, rooms, 96, 128))
+                _armorTick = 0;
+                if (CheckValidMove(X + dir.X * 1.5f, Y, rooms, Width, Height))
                 {
                     X += dir.X * 1.5f;
                 }
-                if(CheckValidMove(X, Y + dir.Y * 1.5f, rooms, 96, 128))
+                if(CheckValidMove(X, Y + dir.Y * 1.5f, rooms, Width, Height))
                 {
                     Y += dir.Y * 1.5f;
                 }
@@ -91,6 +116,5 @@ namespace HideOut
                 }
             }
         }
-        public void UseItem()
     }
 }

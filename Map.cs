@@ -64,5 +64,12 @@ namespace HideOut
                     _rooms[i].GenerateRoom();
             }
         }
+        public void UpdateMap(HashSet<Character> characters)
+        {
+            foreach (Room room in _rooms)
+            {
+                room.UpdateRoom(characters);
+            }
+        }
     }
 }

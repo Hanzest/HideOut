@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace HideOut
 {
-    public enum ItemType
-    {   
-        Potion,
-        Reward,
-        MeleeWeapon,
-        RangeWeapon,
-        Gate
+    public interface IItemFactory
+    {
+        public Item? Create(string name, float x, float y);
     }
 }

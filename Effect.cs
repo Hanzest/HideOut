@@ -16,8 +16,8 @@ namespace HideOut
         private bool _faceLeft;
         private int _tick;
         private int _tickCounter;
-        
-        public Effect(string name, float x, float y, int tick, bool faceLeft)
+        private int _frame;
+        public Effect(string name, float x, float y, int tick, bool faceLeft, int frame)
         {
             _name = name;
             _x = x;
@@ -25,8 +25,8 @@ namespace HideOut
             _tick = tick;
             _tickCounter = 0;
             _faceLeft = faceLeft;
-            
             _exist = true;
+            _frame = frame;
         }
         public string Name
         {
@@ -59,6 +59,11 @@ namespace HideOut
             {
                 _exist = false;
             }
+        }
+        public int Index()
+        {
+            double ratio = (double)TickCounter / _tick;
+            return 1 + (int)(ratio * _frame);
         }
     }
 }

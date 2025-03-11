@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace HideOut
 {
-    public enum ItemType
-    {   
-        Potion,
-        Reward,
-        MeleeWeapon,
-        RangeWeapon,
-        Gate
+    public class Loader
+    {
+        private StreamReader _reader;
+        public Loader() { }
+        public void Load()
+        {
+
+        }
     }
 }

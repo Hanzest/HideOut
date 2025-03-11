@@ -9,8 +9,9 @@ namespace HideOut
     public class Potion : Item
     {
         public Potion(ItemType type, string name, bool inInventory, float x, float y) : base(type, name, inInventory, x, y) { }
-        public void Use(Player p)
+        public void UseBy(Character c)
         {
+            Player p = (Player)c;
             if (Name == "Energy potion")
             {
                 p.EnergyChanged(80);

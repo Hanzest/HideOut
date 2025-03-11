@@ -8,9 +8,16 @@ namespace HideOut
 {
     public class PlayerFactory : ICharacterFactory
     {
-        public Character Create(string name, int health, CharacterType type, int x, int y, float velocity)
+        public Character? Create(string name, float x, float y)
         {
-            return new Player(name, health, type, x, y, velocity);
+            switch (name)
+            {
+                case "alchemist":
+                    return new Player(name, 150, 200, 60, CharacterType.Player, x, y, 10f, 96, 128);
+                default:
+                    return null;
+            }
+            
         }
     }
 }

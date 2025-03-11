@@ -9,6 +9,7 @@ namespace HideOut
     public enum CharacterType
     {
         Player,
-        Enemy
+        MeleeEnemy,
+        RangeEnemy
     }
 }

@@ -10,6 +10,12 @@ namespace HideOut
     {
         public Reward(ItemType type, string name, float x, float y) : base(type, name, false, x, y)
         {
+
+        }
+
+        public void UseBy(Character c)
+        {
+            Player p = (Player)c;
         }
     }
 }

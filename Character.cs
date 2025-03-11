@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using SplashKitSDK;
@@ -24,21 +25,26 @@ namespace HideOut
         private int _maxHealth;
         private bool _exist;
         private float _velocity;
-        private string _path;
         private int _animationTick;
         private int _bmpIndex;
+        private int _width;
+        private int _height;
+        private int _roomNumber;
         protected bool _faceLeft;
-        public Character(string name, int health, CharacterType type)
+        protected bool _enemyNearBy;
+        public Character(string name, int health, CharacterType type, int width, int height)
         {
             _name = name;
             _health = health;
             _type = type;
             _maxHealth = health;
             _exist = true;
-            _path = $"{name}.png";
             _animationTick = 0;
             _bmpIndex = 1;
             _faceLeft = false;
+            _width = width;
+            _height = height;
+            _enemyNearBy = false;
         }
         public float X
         {
@@ -77,14 +83,17 @@ namespace HideOut
             get { return _name; }
             set { _name = value; }
         }
-        public string Path
-        {
-            get { return _path; }
-            set { _path = value; }
-        }
         public int BmpIndex
         {
             get { return _bmpIndex; }
+        }
+        public int Width
+        {
+            get { return _width; }
+        }
+        public int Height
+        {
+            get { return _height; }
         }
         public void Tick()
         {
@@ -113,11 +122,31 @@ namespace HideOut
         public bool FaceLeft
         {
             get { return _faceLeft; }
+            set { _faceLeft = value; }
+        }
+        public bool EnemyNearBy
+        {
+            get { return _enemyNearBy; }
+        }
+        public int RoomNumber
+        {
+            get { return _roomNumber; }
+        }
+        public virtual void TakeDamage(int value, Point2D dir, Room[] rooms)
+        {
+            HealthChanged(-value);
         }
         public Point2D Coordinate()
         {
             Point2D point = new Point2D(X, Y);
             return point;
+        }
+        public void UpdateRoomNumber(Room[] rooms)
+        {
+            if(PositionValidation.CharacterInsideOneRoom(this, rooms))
+            {
+                _roomNumber = PositionValidation.RoomPosition(X, Y, rooms);
+            }
         }
         public virtual void Move(Direction d, Room[] rooms, int width, int height)
         {
@@ -139,14 +168,16 @@ namespace HideOut
                     if(CheckValidMove(X - Velocity, Y, rooms, width, height))
                     {
                         X -= Velocity;
-                        _faceLeft = true;
+                        if(!EnemyNearBy)
+                            _faceLeft = true;   
                     }
                     break;
                 case Direction.Right:
                     if(CheckValidMove(X + Velocity, Y, rooms, width, height))
                     {
                         X += Velocity;
-                        _faceLeft = false;
+                        if(!EnemyNearBy)
+                            _faceLeft = false;
                     }
                     break;
             }
@@ -169,6 +200,108 @@ namespace HideOut
                 return true;
             }
             return false;
+        }
+        public virtual void CollisionWithProjectile(HashSet<Projectile> projectiles, Room[] rooms)
+        {
+            foreach (Projectile p in projectiles)
+            {
+                if ((PositionValidation.PointInRotatedRectangle(X, Y, p.Angle, p.X, p.Y, p.Width, p.Height)
+                    || PositionValidation.PointInRectangle(p.X, p.Y, X - Width / 2, X + Width / 2
+                                                                   , Y - Height / 2, Y + Height / 2))
+                    && p.ShootBy != Type && p.Damage > 0)
+                {
+                    Console.WriteLine($"{Name} was hit by {p.Name}");
+                    Console.WriteLine($"{Name} has {Health} HP left");
+                    if(p.Name != "shotgunBullet")
+                    {
+                        p.Collided = true;
+                    }
+                    Point2D point2D = new Point2D((float)Math.Cos(p.Angle), (float)Math.Sin(p.Angle));
+                    TakeDamage(p.Damage, point2D, rooms);
+                    //if (CheckValidMove(X + (float)Math.Cos(p.Angle) * 25, Y, rooms, Width, Height))
+                    //{
+                    //    X = X + (float)Math.Cos(p.Angle) * 25;
+                    //}
+                    if (CheckValidMove(X, Y + (float)Math.Sin(p.Angle) * 25, rooms, Width, Height))
+                    {
+                        Y = Y + (float)Math.Sin(p.Angle) * 25;
+                    }
+                    
+                }
+            }
+        }
+        public virtual void CollisionWithMeleeWeapon(HashSet<Item> items, Room[] rooms)
+        {
+            foreach (Item item in items)
+            {
+
+                if (item.Type == ItemType.MeleeWeapon)
+                {
+                    MeleeWeapon mWeapon = (MeleeWeapon)item;
+                    if (mWeapon.IsAttack && mWeapon.Holder != Type)
+                    {
+                        //Console.WriteLine($"{Name} is attacked by {mWeapon.Name}");
+                        int knockback = -30;
+                        float mWeaponXpara = mWeapon.X;
+                        if (mWeapon.FaceLeft)
+                        {
+                            knockback = 30;
+                            mWeaponXpara -= 40 + mWeapon.Width / 2;
+                        }
+                        if (PositionValidation.RectangleToRectangle(X, Width, Y, Height, mWeaponXpara, mWeapon.Width / 2, mWeapon.Y, mWeapon.Height))
+                        {
+                            //if (CheckValidMove(X + knockback, Y, rooms, Width, Height))
+                            //{
+                            //   X += knockback;
+                            //}
+                            Point2D point2D = new Point2D(knockback, 0);
+                            TakeDamage(mWeapon.Damage, point2D, rooms);
+                            Console.WriteLine($"{Name} was hit by {mWeapon.Name}");
+                            Console.WriteLine($"{Name} has {Health}HP left");
+                        }
+                    }
+                }
+            }
+        }
+
+        public virtual Point2D NearestEnemy(HashSet<Character> characters)
+        {
+            Point2D point2D = new Point2D(60, 0);
+            if(FaceLeft)
+            {
+                point2D = Coordinate() - point2D;
+            } else
+            {
+                point2D = Coordinate() + point2D;
+            }
+            float dist = 230400;
+            _enemyNearBy = false;
+            foreach (Character character in characters)
+            {
+                if (character.Type != Type)
+                {
+                    if ((character.X - X) * (character.X - X) + (character.Y - Y) * (character.Y - Y) < dist)
+                    {
+                        dist = (character.X - X) * (character.X - X) + (character.Y - Y) * (character.Y - Y);
+                        point2D.X = character.X;
+                        point2D.Y = character.Y;
+                        _enemyNearBy = true;
+                        if(X < character.X)
+                        {
+                            FaceLeft = false;
+                        } else
+                        {
+                            FaceLeft = true;
+                        }
+                    }
+                }
+            }
+            return point2D;
+        }
+        public virtual double NearestEnemyAngle(Point2D enemyPosition)
+        {
+            double angle = Math.Atan2(enemyPosition.Y - Y, enemyPosition.X - X);
+            return angle;
         }
     }
 }
