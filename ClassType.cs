@@ -11,6 +11,7 @@ namespace HideOut
         Character,
         Effect,
         Item,
-        Projectile
+        Projectile,
+        Null
     }
 }

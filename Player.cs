@@ -32,6 +32,15 @@ namespace HideOut
             _maxArmorTick = 80;
             _coin = 0;
         }
+        public Player() : base("player", 0, CharacterType.Player, 0, 0)
+        {
+            X = 0;
+            Y = 0;
+            _inventory = new Inventory(2);
+            _armorTick = 80;
+            _maxArmorTick = 80;
+            _coin = 0;
+        }
         public void RegenerateArmor()
         {
             if (_armorTick == _maxArmorTick)
@@ -53,6 +62,11 @@ namespace HideOut
         {
             get { return _maxArmor; }
             set { _maxArmor = value; }
+        }
+        public int Coin
+        {
+            get { return _coin; }
+            set { _coin = value; }
         }
         public void ArmorChanged(int value)
         {

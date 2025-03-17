@@ -29,7 +29,7 @@ namespace HideOut
         private int _bmpIndex;
         private int _width;
         private int _height;
-        private int _roomNumber;
+        private int _roomIndex;
         protected bool _faceLeft;
         protected bool _enemyNearBy;
         public Character(string name, int health, CharacterType type, int width, int height)
@@ -128,9 +128,9 @@ namespace HideOut
         {
             get { return _enemyNearBy; }
         }
-        public int RoomNumber
+        public int RoomIndex
         {
-            get { return _roomNumber; }
+            get { return _roomIndex; }
         }
         public virtual void TakeDamage(int value, Point2D dir, Room[] rooms)
         {
@@ -145,7 +145,7 @@ namespace HideOut
         {
             if(PositionValidation.CharacterInsideOneRoom(this, rooms))
             {
-                _roomNumber = PositionValidation.RoomPosition(X, Y, rooms);
+                _roomIndex = PositionValidation.RoomPosition(X, Y, rooms);
             }
         }
         public virtual void Move(Direction d, Room[] rooms, int width, int height)
@@ -208,10 +208,11 @@ namespace HideOut
                 if ((PositionValidation.PointInRotatedRectangle(X, Y, p.Angle, p.X, p.Y, p.Width, p.Height)
                     || PositionValidation.PointInRectangle(p.X, p.Y, X - Width / 2, X + Width / 2
                                                                    , Y - Height / 2, Y + Height / 2))
-                    && p.ShootBy != Type && p.Damage > 0)
+                    && p.Damage > 0
+                    && ((Type != CharacterType.Player && p.ShootBy == CharacterType.Player)
+                        || (Type == CharacterType.Player && p.ShootBy != CharacterType.Player)
+                    ))
                 {
-                    Console.WriteLine($"{Name} was hit by {p.Name}");
-                    Console.WriteLine($"{Name} has {Health} HP left");
                     if(p.Name != "shotgunBullet")
                     {
                         p.Collided = true;
@@ -240,7 +241,6 @@ namespace HideOut
                     MeleeWeapon mWeapon = (MeleeWeapon)item;
                     if (mWeapon.IsAttack && mWeapon.Holder != Type)
                     {
-                        //Console.WriteLine($"{Name} is attacked by {mWeapon.Name}");
                         int knockback = -30;
                         float mWeaponXpara = mWeapon.X;
                         if (mWeapon.FaceLeft)
@@ -250,14 +250,8 @@ namespace HideOut
                         }
                         if (PositionValidation.RectangleToRectangle(X, Width, Y, Height, mWeaponXpara, mWeapon.Width / 2, mWeapon.Y, mWeapon.Height))
                         {
-                            //if (CheckValidMove(X + knockback, Y, rooms, Width, Height))
-                            //{
-                            //   X += knockback;
-                            //}
                             Point2D point2D = new Point2D(knockback, 0);
                             TakeDamage(mWeapon.Damage, point2D, rooms);
-                            Console.WriteLine($"{Name} was hit by {mWeapon.Name}");
-                            Console.WriteLine($"{Name} has {Health}HP left");
                         }
                     }
                 }
@@ -274,11 +268,12 @@ namespace HideOut
             {
                 point2D = Coordinate() + point2D;
             }
-            float dist = 230400;
+            float dist = 1036800;
             _enemyNearBy = false;
             foreach (Character character in characters)
             {
-                if (character.Type != Type)
+                if (((Type != CharacterType.Player && character.Type == CharacterType.Player)
+                    || (Type == CharacterType.Player && character.Type != CharacterType.Player)) && character.RoomIndex == RoomIndex)
                 {
                     if ((character.X - X) * (character.X - X) + (character.Y - Y) * (character.Y - Y) < dist)
                     {

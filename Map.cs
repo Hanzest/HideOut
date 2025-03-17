@@ -56,10 +56,10 @@ namespace HideOut
             {
                 if (i == 0)
                 {
-                    _rooms[i] = new Room(_mapStructure[i], 0);
+                    _rooms[i] = new Room(_mapStructure[i], 0, i);
                 } else
                 {
-                    _rooms[i] = new Room(_mapStructure[i], _rooms[i - 1].Adder + _rooms[i - 1].RoomLength);
+                    _rooms[i] = new Room(_mapStructure[i], _rooms[i - 1].Adder + _rooms[i - 1].RoomLength, i);
                 }
                     _rooms[i].GenerateRoom();
             }

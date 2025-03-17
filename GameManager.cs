@@ -10,10 +10,9 @@ namespace HideOut
 {
     public class GameManager
     {
+        private bool _isSetUp;
         private DrawGameObject _drawGameObject;
         private DrawMap _drawMap;
-        //private DrawProjectile _drawProjectile;
-        //private DrawItem _drawItem;
         private DrawText _drawText;
         private DrawStatusBoard _drawStatusBoard;
         private InputHandler _inputHandler;
@@ -21,6 +20,8 @@ namespace HideOut
         private ICharacterFactory _enemyFactory;
         private IItemFactory _rangeWeaponFactory;
         private IItemFactory _meleeWeaponFactory;
+        private IItemFactory _rewardFactory;
+        private IItemFactory _gateFactory;
         private EffectFactory _effectFactory;
         private ProjectileFactory _projectileFactory;
         private Player _player;
@@ -31,21 +32,21 @@ namespace HideOut
         private HashSet<Projectile> _projectiles;
         private HashSet<Effect> _effects;
         private HashSet<Item> _items;
+        private Spawner _spawner;
+        private Loader _loader;
         public GameManager()
         {
-            _drawGameObject = new DrawGameObject(
-                "Resource\\Characters\\", "Resource\\Effects\\",
-                "Resource\\Items\\", "Resource\\Projectiles\\"
-                );
-            _drawMap = new DrawMap("Resource\\Themes\\");
+            _isSetUp = false;
+            _loader = new Loader();
             _drawText = new DrawText();
-            _drawStatusBoard = new DrawStatusBoard("Resource\\Icons\\");
             _inputHandler = new InputHandler();
             _playerFactory = new PlayerFactory();
             _enemyFactory = new EnemyFactory();
             _effectFactory = new EffectFactory();
             _rangeWeaponFactory = new RangeWeaponFactory();
             _meleeWeaponFactory = new MeleeWeaponFactory();
+            _rewardFactory = new RewardFactory();
+            _gateFactory = new GateFactory();
             _projectileFactory = new ProjectileFactory();
             _camera = new Point2D(0, 0);
             _centering = new Point2D(800f, 480f);
@@ -54,61 +55,36 @@ namespace HideOut
             _projectiles = new HashSet<Projectile>();
             _effects = new HashSet<Effect>();
             _items = new HashSet<Item>();
+            _spawner = new Spawner(new List<List<string>>());
+            _drawGameObject = new DrawGameObject();
+            _drawMap = new DrawMap();
+            _drawStatusBoard = new DrawStatusBoard();
         }
         public void SetUp()
         {
+            _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner);
             _maps.Add(new Map());
             _maps[0].GenerateMap();
-            //_characters.Add(_enemyFactory.Create("mantis", 200, 50));
-            //_characters.Add(_enemyFactory.Create("mantis", 200, 50));
-            //_characters.Add(_enemyFactory.Create("mantis", 200, 50));
-            //_characters.Add(_enemyFactory.Create("mantis", 200, 50));
-            _drawGameObject.AddBitmap("alchemist", ClassType.Character);
-            _drawGameObject.AddBitmap("spider", ClassType.Character);
-            _drawGameObject.AddBitmap("mantis", ClassType.Character);
-            _drawGameObject.AddBitmap("zombie", ClassType.Character);
-            _drawGameObject.AddBitmap("bulletCollision", ClassType.Effect);
-            _drawGameObject.AddBitmap("scratch", ClassType.Effect);
-            _drawGameObject.AddBitmap("pistolBullet", ClassType.Projectile);
-            _drawGameObject.AddBitmap("shotgunBullet", ClassType.Projectile);
-            _drawGameObject.AddBitmap("Health potion", ClassType.Item);
-            _drawGameObject.AddBitmap("Energy potion", ClassType.Item);
-            _drawGameObject.AddBitmap("Iron Sword", ClassType.Item);
-            _drawGameObject.AddBitmap("paleslash", ClassType.Effect);
-            _drawGameObject.AddBitmap("revolver", ClassType.Item);
-            _drawGameObject.AddBitmap("sniper", ClassType.Item);
-            _drawGameObject.AddBitmap("sniperBullet", ClassType.Projectile);
-            _drawGameObject.AddBitmap("rifle", ClassType.Item);
-            _drawGameObject.AddBitmap("rifleBullet", ClassType.Projectile);  
-            _drawGameObject.AddBitmap("Light Saber", ClassType.Item);
-            _drawGameObject.AddBitmap("slash", ClassType.Effect);
-            _drawGameObject.AddBitmap("sawed-off shotgun", ClassType.Item);
+            _spawner.SetUpRoom(_characters, _items, _maps[0].Rooms, _enemyFactory, _gateFactory, 1);
+            _player = (Player)_playerFactory.Create("alchemist", 250, 0);
 
             _items.Add(new Potion(ItemType.Potion, "Energy potion", false, 400f, 0f));
             _items.Add(_meleeWeaponFactory.Create("Iron Sword", 600f, 0));
             _items.Add(_rangeWeaponFactory.Create("sawed-off shotgun", 800f, 0));
-            //_items.Add(_meleeWeaponFactory.Create("Iron Sword", 1000f, 0));
-            _items.Add(_rangeWeaponFactory.Create("sniper", 300f, 0));
+            _items.Add(_rangeWeaponFactory.Create("rifle", 300f, 0));
             _items.Add(_meleeWeaponFactory.Create("Light Saber", 1000f, 0));
-            //_items.Add(new RangeWeapon(ItemType.RangeWeapon, "sawed-off shotgun", "shotgunBullet", "null", 1000f, 0f,
-            //                        20, 0f, 200));
-            //_items.Add(new RangeWeapon(ItemType.RangeWeapon, "sawed-off shotgun", "shotgunBullet", "null", 1200f, 0f,
-            //                        20, 0f, 200));
+//            _player = (Player)_playerFactory.Create("alchemist", 250, 0);
 
-            _player = (Player)_playerFactory.Create("alchemist", 250, 0);
             _characters.Add(_player);
-            _characters.Add(_enemyFactory.Create("zombie", 2000, 0));
             foreach (Character character in _characters)
             {
                 if (character.Type == CharacterType.RangeEnemy)
                 {
                     RangeEnemy rangeEnemy = (RangeEnemy)character;
                     _items.Add(rangeEnemy.Inventory.GetItem);
-                    Console.WriteLine(rangeEnemy.Inventory.GetItem.Name);
-                    Console.WriteLine(rangeEnemy.Inventory.GetItem.InInventory);
-                    Console.WriteLine(rangeEnemy.Inventory.GetItem.Display);
                 }
             }
+            _isSetUp = true;
         }
         public void Update()
         {
@@ -127,16 +103,31 @@ namespace HideOut
                         RangeEnemy rangeEnemy = (RangeEnemy)character;
                         _items.Remove(rangeEnemy.Inventory.GetItem);
                     }
+                    for(int i = 0; i < 8; i++)
+                        // Create rewards
+                    {
+                        int rndEnergy = SplashKit.Rnd(0, 2);
+                        int rndCoin = SplashKit.Rnd(0, 2);
+                        if(rndEnergy == 1)
+                        {
+                            _items.Add(_rewardFactory.Create("Energy Particle", character.X, character.Y));
+                        }
+                        if(rndCoin == 1)
+                        {
+                            _items.Add(_rewardFactory.Create("Coin", character.X, character.Y));
+                        }
+                    }
                     _characters.Remove(character);
+                    
                 }
                 switch (character.Type)
                 {
                     case CharacterType.Player:
                         character.Tick();
                         Player p = (Player)character;
-                        if(_maps[0].Rooms[p.RoomNumber].RoomNumber == 2 && !(_maps[0].Rooms[p.RoomNumber].IsClear) && !_maps[0].Rooms[p.RoomNumber].IsPlayerEnter){
+                        if(_maps[0].Rooms[p.RoomIndex].RoomNumber == 2 && !(_maps[0].Rooms[p.RoomIndex].IsClear) && !_maps[0].Rooms[p.RoomIndex].IsPlayerEnter){
                             p.X += 60;
-                            _maps[0].Rooms[p.RoomNumber].Lock();
+                            _maps[0].Rooms[p.RoomIndex].Lock();
                         }
                         p.Inventory.UpdateItemPosition(p);
                         p.RegenerateArmor();
@@ -172,12 +163,21 @@ namespace HideOut
             _maps[0].UpdateMap(_characters);
             foreach (Item item in _items) 
             {
-                switch (item.Type)
+                if(item.Type == ItemType.Reward)
                 {
-                    case ItemType.Potion:
-                        Potion potion = (Potion)item;
-                        break;
-                    // I just remove from here
+                    Reward reward = (Reward)item;
+                    reward.MoveTowardsPlayer(_player);
+                    if (!reward.Exist)
+                    {
+                        if(reward.Name == "Coin")
+                        {
+                            _player.Coin += 1;
+                        }
+                        if(reward.Name == "Energy Particle")
+                        {
+                            _player.EnergyChanged(2);
+                        }
+                    }
                 }
             }
             _camera = _player.Coordinate() - _centering;
@@ -217,6 +217,15 @@ namespace HideOut
         public void Draw()
         {
             _drawMap.Draw(_maps[0]);
+            
+            foreach(Item item in _items)
+            {
+                if(item.Type == ItemType.Gate)
+                {
+                    _drawGameObject.DrawStaticItem(item);
+                }
+            }
+
             _drawGameObject.Draw(_characters);
             _drawGameObject.Draw(_projectiles);
             _drawGameObject.Draw(_effects);
@@ -246,9 +255,16 @@ namespace HideOut
                             _drawText.DrawH1(meleeWeapon.Name, meleeWeapon.X + meleeWeapon.Width / 4, meleeWeapon.Y);
                         }
                         break;
+                    case ItemType.Gate:
+                        Gate gate = (Gate)item;
+                        if(gate.Name == "OutGate" && gate.NearByPlayer(_player, _maps[0].Rooms[0].TileSize))
+                        {
+                            _drawText.DrawSuperH1("Go Inside", gate.X, gate.Y - 108);
+                        }
+                        break;
                 }
             }
-            _drawStatusBoard.Draw(_player);
+            
             foreach (Item item in _items)
             {
                 if(item.InInventory && item.Display)
@@ -257,7 +273,11 @@ namespace HideOut
                 }
                 ;
             }
-            
+            _drawStatusBoard.Draw(_player);
+        }
+        public bool IsSetUp
+        {
+            get { return _isSetUp; }
         }
     }
 }

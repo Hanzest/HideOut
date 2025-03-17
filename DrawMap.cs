@@ -10,10 +10,14 @@ namespace HideOut
     {
         private DrawRoom _drawRoom;
         private string _path;
-        public DrawMap(string path)
+        public DrawMap(string path, int theme)
         {
-            _drawRoom = new DrawRoom(path, 1); // Default theme
+            _drawRoom = new DrawRoom(path, theme); // Default theme
             _path = path;
+        }
+        public DrawMap()
+        {
+
         }
         public void Draw(Map map)
         {
@@ -21,6 +25,11 @@ namespace HideOut
             {
                 _drawRoom.Draw(map.Rooms[i]);
             }
+        }
+        public void SetPath(string path, int theme)
+        {
+            _drawRoom = new DrawRoom(path, theme); // Default theme
+            _path = path;
         }
     }
 }

@@ -60,6 +60,15 @@ namespace HideOut
                                 player.Inventory.Add(mWeapon, player);
                                 ok = true;
                                 break;
+                            case ItemType.Gate:
+                                Gate gate = (Gate)item;
+                                if(gate.Name == "OutGate")
+                                {
+                                    gate.Interact(player);
+                                    ok = true;
+                                    break;
+                                }
+                                break;
                         }
                         if (ok) break;
                     } else if (item.InInventory && player.Inventory.GetItem == item)
@@ -95,15 +104,29 @@ namespace HideOut
         }
 
         // Handle Mouse Input
-        public void HandleMouseInput()
+        public void HandleMouseInput(GameStateManager gameStateManager)
         {
-            if (SplashKit.MouseClicked(MouseButton.LeftButton))
+            float mouseX = SplashKit.MouseX();
+            float mouseY = SplashKit.MouseY();
+            bool isLeftClick = SplashKit.MouseClicked(MouseButton.LeftButton);
+            bool isRightClick = SplashKit.MouseClicked(MouseButton.RightButton);
+            switch (gameStateManager.GetState())
             {
-                Console.WriteLine($"Left Click at {SplashKit.MousePosition()}");
-            }
-            if (SplashKit.MouseClicked(MouseButton.RightButton))
-            {
-                Console.WriteLine($"Right Click at {SplashKit.MousePosition()}");
+                case GameState.MainMenu:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 700, 775))
+                    {
+                        gameStateManager.SetState(GameState.GameInstruction);
+                    }   else if(isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 600, 675))
+                    {
+                        gameStateManager.SetState(GameState.DuringStage);
+                    }
+                    break;
+                case GameState.GameInstruction:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
+                    {
+                        gameStateManager.SetState(GameState.MainMenu);
+                    }
+                    break;
             }
         }
 
@@ -114,7 +137,7 @@ namespace HideOut
                                 EffectFactory effectFactory, ProjectileFactory projectileFactory)
         {
             HandleKeyboardInput(player, map, projectiles, items, characters, effects, effectFactory, projectileFactory);
-            HandleMouseInput();
+            // HandleMouseInput();
         }
     }
 

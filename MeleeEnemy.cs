@@ -21,7 +21,7 @@ namespace HideOut
         }
         public void FindPlayerNearby(Player p, Room[] rooms)
         {
-            if ((Math.Abs(p.X - X) <= 15 * rooms[0].TileSize) && (Math.Abs(p.Y - Y) <= 15 * rooms[0].TileSize) && p.RoomNumber == this.RoomNumber)
+            if ((Math.Abs(p.X - X) <= 15 * rooms[0].TileSize) && (Math.Abs(p.Y - Y) <= 15 * rooms[0].TileSize) && p.RoomIndex == this.RoomIndex)
             {
                 IsAttack = false;
                 Move(p, rooms);

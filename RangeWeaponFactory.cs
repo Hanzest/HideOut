@@ -25,6 +25,9 @@ namespace HideOut
                 case "rifle":
                     return new RangeWeapon(ItemType.RangeWeapon, name, "rifleBullet", "bulletCollision", x, y,
                                     15, 1, 75, 100, 60);
+                case "Broken Glass":
+                    return new RangeWeapon(ItemType.RangeWeapon, name, "Glass", "cut", x, y,
+                                    2, 0, 25, 24, 24);
                 default:
                     return null;
             }

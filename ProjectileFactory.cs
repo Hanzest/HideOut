@@ -21,6 +21,8 @@ namespace HideOut
                     return new Projectile("bulletCollision", name, x, y, 40.5f, 60, isCritical, angle, weaponWidth, shootBy, 24, 11);
                 case "rifleBullet":
                     return new Projectile("bulletCollision", name, x, y, 15.5f, 20, isCritical, angle, weaponWidth, shootBy, 24, 11);
+                case "Glass":
+                    return new Projectile("cut", name, x, y, 20.5f, 3, isCritical, angle, weaponWidth, shootBy, 24, 24);
                 default:
                     return null;
             }

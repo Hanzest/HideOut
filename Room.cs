@@ -12,18 +12,20 @@ namespace HideOut
     {
         private int _rnd;
         private int _roomNumber;
+        private int _roomIndex;
         private int[,] _roomArray;
         private int _tileSize;
         private int _roomSize;
         private int _adder;
         private bool _isClear;
         private bool _isPlayerEnter;
-        public Room(int roomNumber, int adder) // 0: Start, 1: End, 2: Normal Room, 3: Path
+        public Room(int roomNumber, int adder, int roomIndex) // 0: Start, 1: End, 2: Normal Room, 3: Path
         {
             _tileSize = 48;
             _rnd = RandomNumberGenerator.GetInt32(8, 15);
             _roomNumber = roomNumber;
             _adder = adder;
+            _roomIndex = roomIndex;
             if (_roomNumber == 0 || _roomNumber == 1)
             {
                 _rnd = 5;
@@ -50,6 +52,10 @@ namespace HideOut
         {
             get { return _adder; }
         }
+        public int RoomIndex
+        {
+            get { return _roomIndex; }
+        }
         public int RoomLength
         {
             get { 
@@ -74,15 +80,17 @@ namespace HideOut
         {
             get { return _isPlayerEnter; }
         }
+        
         public void UpdateRoom(HashSet<Character> characters)
         {
+            
             int cnt = 0;
             foreach (Character c in characters)
             {
-                if(c.Type != CharacterType.Player && c.RoomNumber == _roomNumber)
+                if(c.Type != CharacterType.Player && c.RoomIndex == RoomIndex)
                 {
                     cnt++;
-                } else if(c.Type == CharacterType.Player && c.RoomNumber == _roomNumber)
+                } else if(c.Type == CharacterType.Player && c.RoomIndex == RoomIndex)
                 {
                     _isPlayerEnter = true;
                 }
@@ -90,6 +98,10 @@ namespace HideOut
             if(cnt == 0)
             {
                 _isClear = true;
+                if(RoomNumber == 2 && IsClear)
+                {
+                    Unlock();
+                }
             }
         }
 
@@ -141,7 +153,7 @@ namespace HideOut
                                4 <= j && j <= _roomSize - 5 && _roomNumber == 2)
                             {
                                 int rnd2 = SplashKit.Rnd(0, 100);
-                                if (rnd2 < 10 && _roomArray[i, j - 1] != 3 && _roomArray[i, j - 2] != 3 && _roomArray[i, j - 3] != 3 && _roomArray[i, j - 4] != 3
+                                if (rnd2 < 20 && _roomArray[i, j - 1] != 3 && _roomArray[i, j - 2] != 3 && _roomArray[i, j - 3] != 3 && _roomArray[i, j - 4] != 3
                                                 && _roomArray[i - 1, j] != 3 && _roomArray[i - 2, j] != 3 && _roomArray[i - 3, j] != 3 && _roomArray[i - 4, j] != 3
                                                 && _roomArray[i - 1, j - 1] != 3 && _roomArray[i - 1, j - 2] != 3 && _roomArray[i - 1, j - 3] != 3
                                                 && _roomArray[i - 2, j - 1] != 3 && _roomArray[i - 2, j - 2] != 3 && _roomArray[i - 2, j - 3] != 3
@@ -233,10 +245,19 @@ namespace HideOut
         }
         public void Lock()
         {
-            Console.WriteLine(RoomNumber);
             for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
             {
                 _roomArray[i, 0] = 2;
+            }
+            Console.WriteLine(RoomIndex);
+
+        }
+        public void Unlock()
+        {
+            for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
+            {
+                _roomArray[i, 0] = 0;
+                _roomArray[i, _roomSize - 1] = 0;
             }
         }
     }

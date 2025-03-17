@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,20 +11,30 @@ namespace HideOut
     public class DrawStatusBoard
     {
         private DrawText _drawText;
-
         private Bitmap _heartIcon;
         private Bitmap _energyIcon;
         private Bitmap _armorIcon;
+        private Bitmap _coinIcon;
+        private string _path;
         private int _width;
         private int _height;
+        public DrawStatusBoard()
+        {
+            _drawText = new DrawText();
+            _width = 400;
+            _height = 180;
+            _path = "";
+        }
         public DrawStatusBoard(string path) 
         {
             _drawText = new DrawText();
             _width = 400;
             _height = 180;
+            _path = path;
             _heartIcon = new Bitmap("heart", $"{path}heart.png");
             _energyIcon = new Bitmap("energy", $"{path}energy.png");
             _armorIcon = new Bitmap("armor", $"{path}armor.png");
+            _coinIcon = new Bitmap("Coin", $"{path}Coin.png");
         }
         public float X
         {
@@ -55,6 +66,10 @@ namespace HideOut
             DrawBar((float)p.Armor / p.MaxArmor, Color.RGBColor(200, 200, 200), X + 75, Y + 130, _width - 125, 25);
             _drawText.DrawH1($"{p.Armor} / {p.MaxArmor}",
                 X + 75 + 0.5f * (_width - 125), Y + 128 + 76);
+            // Coin
+            _coinIcon.Draw(X + 1400, Y + 33);
+            _drawText.DrawH1($"{p.Coin}",
+               X + 1400 + 50, Y + 25 + 76);
         }
         public void DrawFrame()
         {
@@ -70,6 +85,13 @@ namespace HideOut
             SplashKit.FillRectangle(color,
                 x + 2, y + 2, ratio * (width - 4f), height - 4);
         }
-        
+        public void SetPath(string path)
+        {
+            _path = path;
+            _heartIcon = new Bitmap("heart", $"{path}heart.png");
+            _energyIcon = new Bitmap("energy", $"{path}energy.png");
+            _armorIcon = new Bitmap("armor", $"{path}armor.png");
+            _coinIcon = new Bitmap("Coin", $"{path}Coin.png");
+        }
     }
 }

@@ -24,6 +24,10 @@ namespace HideOut
             _pathItem = pathItem;
             _pathProjectile = pathProjectile;
         }
+        public DrawGameObject()
+        {
+            _bitmap = new List<Bitmap>();
+        }
         public Bitmap? GetBitmap(string name)
         {
             return _bitmap.Find(bmp => bmp.Name == name);
@@ -146,7 +150,10 @@ namespace HideOut
                             
                         } else
                         {
-                            bmp.Draw(item.X - bmp.Width / 2, item.Y - bmp.Height / 2);
+                            if(item.Type != ItemType.Gate)
+                            {
+                                bmp.Draw(item.X - bmp.Width / 2, item.Y - bmp.Height / 2);
+                            }
                         }
                     }
                 }
@@ -163,11 +170,27 @@ namespace HideOut
                 }
             }
         }
+
         public void DrawPrioritizedItem(Item item, double angle)
         {
             HashSet<Item> items = new HashSet<Item>();
             items.Add(item);
             Draw(items, item.Angle);
+        }
+        public void DrawStaticItem(Item item)
+        {
+            Bitmap bmp = GetBitmap(item.Name);
+            if (bmp != null)
+            {
+                bmp.Draw(item.X - bmp.Width / 2, item.Y - bmp.Height / 2);
+            }
+        }
+        public void SetPath(string pathCharacter, string pathEffect, string pathItem, string pathProjectile)
+        {
+            _pathCharacter = pathCharacter;
+            _pathEffect = pathEffect;
+            _pathItem = pathItem;
+            _pathProjectile = pathProjectile;
         }
     }
 }

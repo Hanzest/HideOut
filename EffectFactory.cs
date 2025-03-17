@@ -17,6 +17,8 @@ namespace HideOut
                     return new Effect(name, x, y, 20, faceLeft, 4);
                 case "scratch":
                     return new Effect(name, x, y, 15, faceLeft, 4);
+                case "cut":
+                    return new Effect(name, x, y, 12, faceLeft, 4);
                 case "slash":
                     return new Effect(name, x, y, 16, faceLeft, 8);
                 case "paleslash":

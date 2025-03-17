@@ -20,6 +20,11 @@ namespace HideOut
             _floor = new Bitmap[3];
             UpdateTheme(theme);
         }
+        public DrawRoom()
+        {
+            _path = "";
+            _floor = new Bitmap[3];
+        }
         public void UpdateTheme(int theme)
         {
             string curPath = $"{_path}{theme}\\";
