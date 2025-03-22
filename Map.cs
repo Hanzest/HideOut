@@ -10,18 +10,18 @@ namespace HideOut
 {
     public class Map
     {
-        private int _mapSize;
+        private int _mapize;
         private int _theme;
-        private int[] _mapStructure;
+        private int[] _maptructure;
         private Room[] _rooms;
         public Map()
         {
-            _mapSize = RandomNumberGenerator.GetInt32(3, 5);
-            _mapSize = _mapSize * 2 + 1;
+            _mapize = RandomNumberGenerator.GetInt32(3, 7);
+            _mapize = _mapize * 2 + 1;
             _theme = RandomNumberGenerator.GetInt32(1, 3);
-            _mapStructure = new int[_mapSize];
+            _maptructure = new int[_mapize];
             GenerateMapStructure();
-            _rooms = new Room[_mapSize];
+            _rooms = new Room[_mapize];
         }
         public int Theme
         {
@@ -29,7 +29,7 @@ namespace HideOut
         }
         public int MapSize
         {
-            get { return _mapSize; }
+            get { return _mapize; }
         }
         public Room[] Rooms
         {
@@ -37,29 +37,29 @@ namespace HideOut
         }
         public void GenerateMapStructure() // 0: Start, 1: End, 2: Normal Room, 3: Path
         {
-            for (int i = 0; i < _mapSize; i++)
+            for (int i = 0; i < _mapize; i++)
             {
                 if (i % 2 == 0)
                 {
-                    _mapStructure[i] = 2;
+                    _maptructure[i] = 2;
                 } else
                 {
-                    _mapStructure[i] = 3;
+                    _maptructure[i] = 3;
                 }
             }
-            _mapStructure[0] = 0;
-            _mapStructure[_mapSize - 1] = 1;
+            _maptructure[0] = 0;
+            _maptructure[_mapize - 1] = 1;
         }
         public void GenerateMap()
         {
-            for(int i = 0; i < _mapSize; i++)
+            for(int i = 0; i < _mapize; i++)
             {
                 if (i == 0)
                 {
-                    _rooms[i] = new Room(_mapStructure[i], 0, i);
+                    _rooms[i] = new Room(_maptructure[i], 0, i);
                 } else
                 {
-                    _rooms[i] = new Room(_mapStructure[i], _rooms[i - 1].Adder + _rooms[i - 1].RoomLength, i);
+                    _rooms[i] = new Room(_maptructure[i], _rooms[i - 1].Adder + _rooms[i - 1].RoomLength, i);
                 }
                     _rooms[i].GenerateRoom();
             }

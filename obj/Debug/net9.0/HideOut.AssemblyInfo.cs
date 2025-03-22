@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HideOut")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d4978b78a276e281e83b4d454de200a5bb1ee50")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe7d5b4c3f21cc4bb12e87d2da33f423325bf6f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("HideOut")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HideOut")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

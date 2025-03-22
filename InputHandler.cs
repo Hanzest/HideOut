@@ -88,13 +88,6 @@ namespace HideOut
                         }
                     }
                 }
-                if (!ok)
-                {
-                    //projectiles.Add(new Projectile("bulletCollision", "pistol", player.X, player.Y, 
-                    //                            16f, 25, false, 1800, 0));
-                    //player.EnergyChanged(-10);
-                }
-                
             }
             if (SplashKit.KeyTyped(KeyCode.KKey))
             {
@@ -104,7 +97,8 @@ namespace HideOut
         }
 
         // Handle Mouse Input
-        public void HandleMouseInput(GameStateManager gameStateManager)
+        public void HandleMouseInput(GameStateManager gameStateManager, ref int characterIndex, int characterMaxIndex
+                                   , BuffManager buffManager, ref int buffIndex1, ref int buffIndex2)
         {
             float mouseX = SplashKit.MouseX();
             float mouseY = SplashKit.MouseY();
@@ -118,10 +112,54 @@ namespace HideOut
                         gameStateManager.SetState(GameState.GameInstruction);
                     }   else if(isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 600, 675))
                     {
-                        gameStateManager.SetState(GameState.DuringStage);
+                        gameStateManager.SetState(GameState.ChoosingCharacter);
                     }
                     break;
                 case GameState.GameInstruction:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
+                    {
+                        gameStateManager.SetState(GameState.MainMenu);
+                    }
+                    break;
+                case GameState.ChoosingCharacter:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
+                    {
+                        gameStateManager.SetState(GameState.MainMenu);
+                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 300, 450, 525))
+                    {
+                        characterIndex--;
+                        characterIndex %= characterMaxIndex;
+                        if(characterIndex < 0)
+                        {
+                            characterIndex = characterMaxIndex - 1;
+                        }
+                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 1380, 1550, 450, 525))
+                    {
+                        characterIndex++;
+                        characterIndex %= characterMaxIndex;
+                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 575, 1025, 720, 820))
+                    {
+                        gameStateManager.SetState(GameState.DuringStage);
+                    }
+                        break;
+                case GameState.BuffPurchase:
+                   if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 325, 675, 720, 820))
+                    {
+                        buffManager.UpgradeBuff(buffIndex1);
+                        gameStateManager.SetState(GameState.DuringStage);
+                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 925, 1275, 720, 820))
+                    {
+                        buffManager.UpgradeBuff(buffIndex2);
+                        gameStateManager.SetState(GameState.DuringStage);
+                    }
+                    break;
+                case GameState.LoseGame:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
+                    {
+                        gameStateManager.SetState(GameState.MainMenu);
+                    }
+                    break;
+                case GameState.WinGame:
                     if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
                     {
                         gameStateManager.SetState(GameState.MainMenu);

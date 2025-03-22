@@ -54,7 +54,7 @@ namespace HideOut
                         int rnd2 = SplashKit.Rnd(4, room.RoomWidth - 5);
                         for (int i = rnd1 - 1; i <= rnd1 + 3; i++)
                         {
-                            for (int j = rnd2 - 1; j <= rnd2 + 1; j++)
+                            for (int j = rnd2 - 2; j <= rnd2 + 2; j++)
                             {
                                 if (room.RoomArray[i, j] == 3)
                                 {

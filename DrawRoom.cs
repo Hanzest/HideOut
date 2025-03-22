@@ -25,12 +25,35 @@ namespace HideOut
             _path = "";
             _floor = new Bitmap[3];
         }
+        public string Path
+        {
+            get { return _path; }
+            set { _path = value; }
+        }
         public void UpdateTheme(int theme)
         {
             string curPath = $"{_path}{theme}\\";
-            _floor[0] = new Bitmap("floor0", curPath + "floor0.png");
-            _floor[1] = new Bitmap("floor1", curPath + "floor1.png");
-            _floor[2] = new Bitmap("floor2", curPath + "floor2.png");
+            Console.WriteLine(curPath);
+            for(int i = 0; i < 3; i++)
+            {
+                if (_floor[i] != null)
+                {
+                    _floor[i].Free();
+                }
+                _floor[i] = new Bitmap($"floor{i}", $"{curPath}floor{i}.png");
+            }
+            if(_barrier != null)
+            {
+                _barrier.Free();
+            }
+            if(_hwall != null)
+            {
+                _hwall.Free();
+            }
+            if (_vwall != null)
+            {
+                _vwall.Free();
+            }
             _barrier = new Bitmap("barrier", curPath + "barrier.png");
             _hwall = new Bitmap("hwall", curPath + "hwall.png");
             _vwall = new Bitmap("vwall", curPath + "vwall.png");

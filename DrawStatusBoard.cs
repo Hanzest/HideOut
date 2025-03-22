@@ -11,6 +11,7 @@ namespace HideOut
     public class DrawStatusBoard
     {
         private DrawText _drawText;
+        private DrawingComponent _drawingComponent;
         private Bitmap _heartIcon;
         private Bitmap _energyIcon;
         private Bitmap _armorIcon;
@@ -20,6 +21,7 @@ namespace HideOut
         private int _height;
         public DrawStatusBoard()
         {
+            _drawingComponent = new DrawingComponent();
             _drawText = new DrawText();
             _width = 400;
             _height = 180;
@@ -31,6 +33,7 @@ namespace HideOut
             _width = 400;
             _height = 180;
             _path = path;
+            _drawingComponent = new DrawingComponent();
             _heartIcon = new Bitmap("heart", $"{path}heart.png");
             _energyIcon = new Bitmap("energy", $"{path}energy.png");
             _armorIcon = new Bitmap("armor", $"{path}armor.png");
@@ -44,7 +47,7 @@ namespace HideOut
         {
             get; set;
         }
-        public void Draw(Player p)
+        public void Draw(Player p, Saver s)
         {
             X = p.X - 800 + 24;
             Y = p.Y - 480 + 24;
@@ -70,6 +73,10 @@ namespace HideOut
             _coinIcon.Draw(X + 1400, Y + 33);
             _drawText.DrawH1($"{p.Coin}",
                X + 1400 + 50, Y + 25 + 76);
+
+            // Current level:
+            _drawingComponent.DrawRectangle(Color.Gray, Color.White, X - 24 + 650, Y, 300, 75);
+            _drawText.DrawMontserratH3Custom($"Level: {s.Level}", X - 24 + 650 + 150, Y + 8, Color.Black);
         }
         public void DrawFrame()
         {

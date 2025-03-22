@@ -13,6 +13,7 @@ namespace HideOut
         ChoosingCharacter,
         DuringStage,
         BuffPurchase,
-        GameSummary
+        WinGame,
+        LoseGame
     }
 }

@@ -18,6 +18,10 @@ namespace HideOut
         {
             SplashKit.DrawBitmap(bitmap, x, y, SplashKit.OptionRotateBmp(angle * 180 / Math.PI));
         }
+        public static void DrawScale(this Bitmap bitmap, float x, float y, float scaleX, float scaleY)
+        {
+            SplashKit.DrawBitmap(bitmap, x, y, SplashKit.OptionScaleBmp(scaleX, scaleY));
+        }
         public static void Free(this Bitmap bitmap)
         {
             SplashKit.FreeBitmap(bitmap);

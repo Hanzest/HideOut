@@ -11,7 +11,7 @@ namespace HideOut
     {
         private StreamReader _reader;
         public Loader() { }
-        public void LoadResource(DrawGameObject dgObject, DrawMap dMap, DrawStatusBoard dsBoard, Spawner spawner)
+        public void LoadResource(DrawGameObject dgObject, DrawMap dMap, DrawStatusBoard dsBoard, Spawner spawner, int theme)
         {
             _reader = new StreamReader("Resource\\SetUp.txt");
             try
@@ -25,7 +25,7 @@ namespace HideOut
                 ClassType type;
                 dgObject.SetPath(charSource, effSource, itemSource, projSource);
                 List<List<string>> lls = new List<List<string>>();
-                for(int i = 1; i <= 6; i++)
+                for (int i = 1; i <= 6; i++)
                 {
                     int cnt = _reader.ReadInteger();
                     switch (i)
@@ -46,18 +46,19 @@ namespace HideOut
                             type = ClassType.Null;
                             break;
                     }
-                    if(i <= 4)
+                    if (i <= 4)
                     {
-                        for(int j = 0; j < cnt; j++)
+                        for (int j = 0; j < cnt; j++)
                         {
                             string name = _reader.ReadLine();
                             dgObject.AddBitmap(name, type);
                         }
-                    } else if(i == 5)
+                    }
+                    else if (i == 5)
                     {
                         // Default theme
-                        dMap.SetPath(themeSource, 1);
-                        for(int j = 0; j < cnt; j++)
+                        dMap.SetPath(themeSource, theme);
+                        for (int j = 0; j < cnt; j++)
                         {
                             int cntls = _reader.ReadInteger();
                             List<string> ls = new List<string>();
@@ -70,12 +71,30 @@ namespace HideOut
                         }
                         Console.WriteLine(lls.Count);
                         spawner.ThemeListEnemy = lls;
- 
-                    } else if(i == 6)
+
+                    }
+                    else if (i == 6)
                     {
                         dsBoard.SetPath(iconSource);
                     }
                 }
+            }
+            finally
+            {
+                _reader.Close();
+            }
+        }
+        public void LoadSaveGame(Player p, Saver s)
+        {
+            _reader = new StreamReader("Resource\\SaveGame.txt");
+            try
+            {
+                Console.WriteLine("Loading Save Game...");
+                s.Level = _reader.ReadInteger();
+                p.Name = _reader.ReadLine();
+                p.Health = _reader.ReadInteger();
+                p.Coin = _reader.ReadInteger();
+                p.Energy = _reader.ReadInteger();
             }
             finally
             {

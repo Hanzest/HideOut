@@ -15,10 +15,14 @@ namespace HideOut
         }
         public void Interact(Player p)
         {
-            if(Name == "InGate")
+            if(Name == "OutGate")
             {
                 _isPlayerInteract = true;
             }
+        }
+        public bool IsPlayerInteract
+        {
+            get { return _isPlayerInteract; }
         }
     }
 }

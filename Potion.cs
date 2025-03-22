@@ -14,12 +14,12 @@ namespace HideOut
             Player p = (Player)c;
             if (Name == "Energy potion")
             {
-                p.EnergyChanged(80);
+                p.EnergyChanged(50);
                 Exist = false;
             }
             else if (Name == "Health potion")
             {
-                p.HealthChanged(10);
+                p.HealthChanged(15);
                 Exist = false;
             }
         }

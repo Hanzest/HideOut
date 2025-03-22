@@ -153,13 +153,23 @@ namespace HideOut
                                4 <= j && j <= _roomSize - 5 && _roomNumber == 2)
                             {
                                 int rnd2 = SplashKit.Rnd(0, 100);
-                                if (rnd2 < 20 && _roomArray[i, j - 1] != 3 && _roomArray[i, j - 2] != 3 && _roomArray[i, j - 3] != 3 && _roomArray[i, j - 4] != 3
-                                                && _roomArray[i - 1, j] != 3 && _roomArray[i - 2, j] != 3 && _roomArray[i - 3, j] != 3 && _roomArray[i - 4, j] != 3
-                                                && _roomArray[i - 1, j - 1] != 3 && _roomArray[i - 1, j - 2] != 3 && _roomArray[i - 1, j - 3] != 3
-                                                && _roomArray[i - 2, j - 1] != 3 && _roomArray[i - 2, j - 2] != 3 && _roomArray[i - 2, j - 3] != 3
-                                                && _roomArray[i - 3, j - 1] != 3 && _roomArray[i - 3, j - 2] != 3 && _roomArray[i - 3, j - 3] != 3)
+                                if (rnd2 < 20)
                                 {
-                                    _roomArray[i, j] = 3;
+                                    bool ok = true;
+                                    for(int x = i - 4; x <= i; x++)
+                                    {
+                                        for (int y = j - 4; y <= j; y++)
+                                        {
+                                            if(_roomArray[x, y] == 3)
+                                            {
+                                                ok = false;
+                                            }
+                                        }
+                                    }
+                                    if (ok)
+                                    {
+                                        _roomArray[i, j] = 3;
+                                    }
                                 }
                             }
                         }

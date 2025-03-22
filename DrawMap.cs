@@ -17,7 +17,8 @@ namespace HideOut
         }
         public DrawMap()
         {
-
+            _drawRoom = new DrawRoom();
+            _path = "";
         }
         public void Draw(Map map)
         {
@@ -28,8 +29,9 @@ namespace HideOut
         }
         public void SetPath(string path, int theme)
         {
-            _drawRoom = new DrawRoom(path, theme); // Default theme
             _path = path;
+            _drawRoom.Path = path;
+            _drawRoom.UpdateTheme(theme);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HideOut
 {
-    public class Projectile
+    public class Projectile : IGameObject
     {
         private string _collision;
         private string _name;
@@ -91,6 +91,10 @@ namespace HideOut
         public CharacterType ShootBy
         {
             get { return _shootBy; }
+        }
+        public Point2D Coordinate()
+        {
+            return new Point2D(_x, _y);
         }
         public void Move(Room[] rooms)
         {

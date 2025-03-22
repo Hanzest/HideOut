@@ -121,8 +121,6 @@ namespace HideOut
                 {
                     Y += dir.Y * 1.5f;
                 }
-
-
                 if (_armor < 0)
                 {
                     HealthChanged(_armor);

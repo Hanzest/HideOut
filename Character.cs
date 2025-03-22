@@ -59,6 +59,7 @@ namespace HideOut
         public int Health
         {
             get { return _health; }
+            set { _health = value; }
         }
         public CharacterType Type
         {

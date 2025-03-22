@@ -42,15 +42,25 @@ namespace HideOut
             SplashKit.DrawText(text, color, _montserrat, 96,
                x - text.Length * 24f, y);
         }
-        public void DrawKagayamaKaiH1Custom(string text, float x, float y, Color color)
+        public void DrawMontserratH2Custom(string text, float x, float y, Color color)
         {
-            SplashKit.DrawText(text, color, _kagayamaKai, 96,
-               x - text.Length * 24f, y);
+            SplashKit.DrawText(text, color, _montserrat, 64,
+               x - text.Length * 18, y);
         }
         public void DrawMontserratH3Custom(string text, float x, float y, Color color)
         {
             SplashKit.DrawText(text, color, _montserrat, 48,
                x - text.Length * 12f, y);
+        }
+        public void DrawMontserratH4Custom(string text, float x, float y, Color color)
+        {
+            SplashKit.DrawText(text, color, _montserrat, 32,
+               x - text.Length * 8f, y);
+        }
+        public void DrawMontserratH4LeftAlign(string text, float x, float y, Color color)
+        {
+            SplashKit.DrawText(text, color, _montserrat, 32,
+               x, y);
         }
     }
 }
