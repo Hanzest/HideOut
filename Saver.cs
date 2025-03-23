@@ -26,10 +26,14 @@ namespace HideOut
         private int _decreaseHP;
         private int _decreaseSpeed;
         private int _decreaseDamage;
+        // number of Item in Inventory
+        private int _numberOfItem;
+        private List<string> _itemName;
         // control variable
         private bool _isAbleToContinue;
         private bool _isLost;
         private bool _isSaved;
+
         private StreamWriter _writer;
         public Saver() 
         {
@@ -44,7 +48,8 @@ namespace HideOut
             _decreaseHP = 0;
             _decreaseSpeed = 0;
             _decreaseDamage = 0;
-
+            _numberOfItem = 1;
+            _itemName = new List<string>();
         }
         public int Level 
         { 
@@ -122,6 +127,11 @@ namespace HideOut
             _decreaseHP = enemyFactory.DecreaseHP;
             _decreaseSpeed = enemyFactory.DecreaseSpeed;
             _decreaseDamage = enemyFactory.DecreaseDamage;
+            _numberOfItem = player.Inventory.Count;
+            for(int i = 0; i < _numberOfItem; i++)
+            {
+                _itemName.Add(player.Inventory.GetItemByIndex(i).Name);
+            }
         }
         public void SaveBuff(BuffManager buffManager)
         {
@@ -158,6 +168,13 @@ namespace HideOut
                 _writer.WriteLine(_health);
                 _writer.WriteLine(_coin);
                 _writer.WriteLine(_energy);
+                // Write Inventory
+                _writer.WriteLine(_numberOfItem);
+                for (int i = 0; i < _numberOfItem; i++)
+                {
+                    _writer.WriteLine(_itemName[i]);
+                    Console.WriteLine($"Written Item: {_itemName[i]}");
+                }
             }
             finally
             {

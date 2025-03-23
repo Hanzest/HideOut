@@ -84,11 +84,13 @@ namespace HideOut
                 _reader.Close();
             }
         }
-        public void LoadSaveGame(ref Player p, ref Saver s, ref ICharacterFactory pFactory, ref ICharacterFactory eFactory, ref BuffManager buffManager)
+        public void LoadSaveGame( ref Player p, ref Saver s, ref ICharacterFactory pFactory, ref ICharacterFactory eFactory
+                                , ref BuffManager buffManager, ref IItemFactory wFactory, ref HashSet<Item> items)
         {
             string temp;
             EnemyFactory enemyFactory = (EnemyFactory)eFactory;
             PlayerFactory playerFactory = (PlayerFactory)pFactory;
+            WeaponFactory weaponFactory = (WeaponFactory)wFactory;
             _reader = new StreamReader("Resource\\SaveGame.txt");
             try
             {
@@ -125,6 +127,15 @@ namespace HideOut
                     p.Coin = _reader.ReadInteger();
                     p.Energy = _reader.ReadInteger();
                     Console.WriteLine($"Loaded: {p.Name} {p.Health} {p.Energy} {p.Coin}");
+                    int numberOfItem = _reader.ReadInteger();
+                    for (int i = 0; i < numberOfItem; i++)
+                    {
+                        string itemName = _reader.ReadLine();
+                        Item item = weaponFactory.Create(itemName, 0, 0);
+                        items.Add(item);
+                        Console.WriteLine($"Loaded Item: {item.Name}");
+                        p.Inventory.Add(item, p);
+                    }
                 } else
                 {
                     s.Level = 1;

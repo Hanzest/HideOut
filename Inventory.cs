@@ -29,7 +29,6 @@ namespace HideOut
                 return;
             } else
             {
-                
                 if(c.Type == CharacterType.RangeEnemy)
                 {
                     RangeWeapon rangeWeapon = (RangeWeapon)item;
@@ -78,6 +77,14 @@ namespace HideOut
                 }
                 return _items[_index]; 
             }
+        }
+        public Item GetItemByIndex(int index)
+        {
+            if(index < 0 || index >= _items.Count)
+            {
+                return null;
+            }
+            return _items[index];
         }
         public int Count
         {

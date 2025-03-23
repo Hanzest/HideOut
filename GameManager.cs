@@ -25,8 +25,7 @@ namespace HideOut
         private InputHandler _inputHandler;
         private ICharacterFactory _playerFactory;
         private ICharacterFactory _enemyFactory;
-        private IItemFactory _rangeWeaponFactory;
-        private IItemFactory _meleeWeaponFactory;
+        private IItemFactory _weaponFactory;
         private IItemFactory _rewardFactory;
         private IItemFactory _gateFactory;
         private EffectFactory _effectFactory;
@@ -39,6 +38,7 @@ namespace HideOut
         private HashSet<Projectile> _projectiles;
         private HashSet<Effect> _effects;
         private HashSet<Item> _items;
+        private ItemDrop _itemDrop;
         private Spawner _spawner;
         private Loader _loader;
         public GameManager()
@@ -56,11 +56,11 @@ namespace HideOut
             _playerFactory = new PlayerFactory();
             _enemyFactory = new EnemyFactory();
             _effectFactory = new EffectFactory();
-            _rangeWeaponFactory = new RangeWeaponFactory();
-            _meleeWeaponFactory = new MeleeWeaponFactory();
+            _weaponFactory = new WeaponFactory();
             _rewardFactory = new RewardFactory();
             _gateFactory = new GateFactory();
             _projectileFactory = new ProjectileFactory();
+            _itemDrop = new ItemDrop();
             _camera = new Point2D(0, 0);
             _centering = new Point2D(800f, 480f);
             _characters = new HashSet<Character>();
@@ -81,6 +81,11 @@ namespace HideOut
             _name = name;
             _saver = saver;
             _theme = theme;
+            if(saver.Level <= 3 && theme == 2)
+            {
+                // Only allow theme 0 and 1 for level 1-3
+                theme = SplashKit.Rnd(0, 2);
+            }
             _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, theme);
             _map = new Map();
             Console.WriteLine($"Level: {_saver.Level}");
@@ -89,7 +94,8 @@ namespace HideOut
             if (isStartGame == false)
                 // Continue playing
             {
-                _loader.LoadSaveGame(ref _player, ref _saver, ref _playerFactory, ref _enemyFactory, ref buffManager);
+                _loader.LoadSaveGame(ref _player, ref _saver, ref _playerFactory, ref _enemyFactory, ref buffManager
+                                    , ref _weaponFactory, ref _items);
                 EnemyFactory tempEF = (EnemyFactory)_enemyFactory;
                 PlayerFactory tempPF = (PlayerFactory)_playerFactory;
                 Console.WriteLine($"PlayerFactory: {tempPF.BonusHP} {tempPF.BonusEnergy} {tempPF.BonusArmor} {tempPF.BonusSpeed}");
@@ -126,12 +132,10 @@ namespace HideOut
             _spawner.SetUpRoom(_characters, _items, _map.Rooms, _enemyFactory, _gateFactory, _theme);
             
             _characters.Add(_player);
-            _items.Add(new Potion(ItemType.Potion, "Energy potion", false, 400f, 0f));
-            _items.Add(_meleeWeaponFactory.Create("Iron Sword", 600f, 0));
-            _items.Add(_rangeWeaponFactory.Create("rifle", 300f, 0));
-            _items.Add(_rangeWeaponFactory.Create("snipezooka", 200f, 0));
-            
-            
+            _items.Add(_weaponFactory.Create("revolver", 300f, 0));
+            //Item lightSaber = _meleeWeaponFactory.Create("Light Saber", 0, 0);
+            //_items.Add(lightSaber);
+            //_player.Inventory.Add(lightSaber, _player);
             foreach (Character character in _characters)
             {
                 if (character.Type == CharacterType.RangeEnemy)
@@ -179,8 +183,11 @@ namespace HideOut
                         _saver.IsLost = true;
                         _isNotLost = false;
                         _saver.SaveLost();
+                    } else
+                    {
+                        _itemDrop.Drop(_weaponFactory, _items, character.Coordinate());
                     }
-                    _characters.Remove(character);
+                        _characters.Remove(character);
                     
                 }
                 switch (character.Type)

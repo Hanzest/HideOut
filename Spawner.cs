@@ -40,7 +40,7 @@ namespace HideOut
                     int cnt = 0;
                     bool ok = false;
                     
-                    while (cnt < room.RoomWidth / 6)
+                    while (cnt < room.RoomWidth / 3)
                     {
                         ok = true;
                         if(checkInfLoop > 1000)
@@ -52,7 +52,7 @@ namespace HideOut
                         
                         int rnd1 = SplashKit.Rnd(4, room.RoomWidth - 5);
                         int rnd2 = SplashKit.Rnd(4, room.RoomWidth - 5);
-                        for (int i = rnd1 - 1; i <= rnd1 + 3; i++)
+                        for (int i = rnd1 - 2; i <= rnd1 + 3; i++)
                         {
                             for (int j = rnd2 - 2; j <= rnd2 + 2; j++)
                             {

@@ -54,7 +54,10 @@ namespace HideOut
                     break;
                 case ClassType.Item:
                     _bitmap.Add(new Bitmap(name, $"{_pathItem}{name}.png"));
-                    _bitmap.Add(new Bitmap($"flip{name}", $"{_pathItem}flip{name}.png"));
+                    if(name != "Energy potion" && name != "Health potion" && name != "Broken Glass" && name != "InGate" && name != "OutGate")
+                    {
+                        _bitmap.Add(new Bitmap($"flip{name}", $"{_pathItem}flip{name}.png"));
+                    }
                     break;
                 case ClassType.Projectile:
                     _bitmap.Add(new Bitmap(name, $"{_pathProjectile}{name}.png"));

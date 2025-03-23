@@ -10,12 +10,10 @@ namespace HideOut
     public class RangeWeapon : Weapon
     {
         private string _bullet;
-        private int _damage;
         public RangeWeapon(ItemType type, string name, string bullet, string effect, float x, float y, int damage, int energyCost, int attackCooldown, int width, int height)
             : base(type, name, effect, x, y, damage, energyCost, attackCooldown, width, height)
         {
             _bullet = bullet;
-            _damage = damage;
             _attackCooldown = attackCooldown;
         }
         public override void UseBy(Character c, Point2D point2D,
