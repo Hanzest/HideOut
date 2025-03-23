@@ -11,6 +11,7 @@ namespace HideOut
         MainMenu,
         GameInstruction,
         ChoosingCharacter,
+        NotAbleToContinue,
         DuringStage,
         BuffPurchase,
         WinGame,

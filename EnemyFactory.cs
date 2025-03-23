@@ -76,14 +76,17 @@ namespace HideOut
         public int DecreaseHP
         {
             get { return _decreaseHP; }
+            set { _decreaseHP = value; }
         }
         public int DecreaseSpeed
         {
             get { return _decreaseSpeed; }
+            set { _decreaseSpeed = value; }
         }
         public int DecreaseDamage
         {
             get { return _decreaseDamage; }
+            set { _decreaseDamage = value; }
         }
     }
 }

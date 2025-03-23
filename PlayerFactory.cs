@@ -24,7 +24,7 @@ namespace HideOut
             switch (name)
             {
                 case "alchemist":
-                    return new Player(name, 150 + _bonusHP * 25, 200 + _bonusEnergy * 25, 60 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, 96, 128);
+                    return new Player(name, 150 + _bonusHP * 25, 200 + _bonusEnergy * 25, 55 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, 96, 128);
                 case "wizard":
                     return new Player(name, 100 + _bonusHP * 25, 300 + _bonusEnergy * 25, 40 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, 96, 128);
                 case "cowboy":
@@ -52,18 +52,22 @@ namespace HideOut
         public int BonusHP
         {
             get { return _bonusHP; }
+            set { _bonusHP = value; }
         }
         public int BonusEnergy
         {
             get { return _bonusEnergy; }
+            set { _bonusEnergy = value; }
         }
         public int BonusArmor
         {
             get { return _bonusArmor; }
+            set { _bonusArmor = value; }
         }
         public int BonusSpeed
         {
             get { return _bonusSpeed; }
+            set { _bonusSpeed = value; }
         }
     }
 }

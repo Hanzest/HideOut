@@ -53,6 +53,10 @@ namespace HideOut
         {
             return _buffArray[index];
         }
+        public void SetBuffIndex(int index, int value)
+        {
+            _buffArray[index] = value;
+        }
         public string GetBuffString(int index)
         {
             return _buffString[index];

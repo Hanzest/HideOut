@@ -84,22 +84,64 @@ namespace HideOut
                 _reader.Close();
             }
         }
-        public void LoadSaveGame(Player p, Saver s)
+        public void LoadSaveGame(ref Player p, ref Saver s, ref ICharacterFactory pFactory, ref ICharacterFactory eFactory, ref BuffManager buffManager)
         {
+            string temp;
+            EnemyFactory enemyFactory = (EnemyFactory)eFactory;
+            PlayerFactory playerFactory = (PlayerFactory)pFactory;
             _reader = new StreamReader("Resource\\SaveGame.txt");
             try
             {
                 Console.WriteLine("Loading Save Game...");
-                s.Level = _reader.ReadInteger();
-                p.Name = _reader.ReadLine();
-                p.Health = _reader.ReadInteger();
-                p.Coin = _reader.ReadInteger();
-                p.Energy = _reader.ReadInteger();
+                temp = _reader.ReadLine();
+                if(temp == "yes")
+                {
+                    for(int i = 0; i < 7; i++)
+                    {
+                        int value = _reader.ReadInteger();
+                        buffManager.SetBuffIndex(i, value);
+                    }
+                    // Player's buff
+                    playerFactory.BonusHP = buffManager.GetBuffIndex(0);
+                    playerFactory.BonusEnergy = buffManager.GetBuffIndex(1);
+                    playerFactory.BonusArmor = buffManager.GetBuffIndex(2);
+                    playerFactory.BonusSpeed = buffManager.GetBuffIndex(3);
+                    Console.WriteLine($"Load Player's Buff: {playerFactory.BonusHP} {playerFactory.BonusEnergy} {playerFactory.BonusArmor} {playerFactory.BonusSpeed}");
+                    pFactory = playerFactory;
+                    
+                    // Enemy's debuff
+                    enemyFactory.DecreaseHP = buffManager.GetBuffIndex(4);
+                    enemyFactory.DecreaseSpeed = buffManager.GetBuffIndex(5);
+                    enemyFactory.DecreaseDamage = buffManager.GetBuffIndex(6);
+                    Console.WriteLine($"Load Enemy's Debuff: {enemyFactory.DecreaseHP} {enemyFactory.DecreaseSpeed} {enemyFactory.DecreaseDamage}");
+                    eFactory = enemyFactory;
+                    
+                    // Basic Information
+                    s.Level = _reader.ReadInteger();
+                    p.Name = _reader.ReadLine();
+                    Player newPlayer = (Player)playerFactory.Create(p.Name, 200, 0);
+                    p = newPlayer;
+                    p.Health = _reader.ReadInteger();
+                    p.Coin = _reader.ReadInteger();
+                    p.Energy = _reader.ReadInteger();
+                    Console.WriteLine($"Loaded: {p.Name} {p.Health} {p.Energy} {p.Coin}");
+                } else
+                {
+                    s.Level = 1;
+                    s.IsAbleToContinue = false;
+                }
+                
             }
             finally
             {
                 _reader.Close();
             }
+        }
+        public void LoadDefault(Player p, Saver s)
+        {
+            s.IsAbleToContinue = true;
+            s.Level = 1;
+            s.Coin = 0;
         }
     }
 }

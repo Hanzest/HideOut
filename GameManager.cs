@@ -16,7 +16,6 @@ namespace HideOut
         private bool _isNotLost;
         private bool _isBuffUpdated;
         private bool _isFreeAll;
-        private bool _isLoadedFromSave;
 
         private bool _isSetUp;
         private DrawGameObject _drawGameObject;
@@ -51,7 +50,6 @@ namespace HideOut
             _isBuffUpdated = false;
             _isSetUp = false;
             _isFreeAll = false;
-            _isLoadedFromSave = false;
             _loader = new Loader();
             _drawText = new DrawText();
             _inputHandler = new InputHandler();
@@ -75,21 +73,55 @@ namespace HideOut
             _drawMap = new DrawMap();
             _drawStatusBoard = new DrawStatusBoard();
         }
-        public void SetUp(string name, int theme, Saver saver)
+        public void SetUp(string name, int theme, Saver saver, ref bool isStartGame, ref BuffManager buffManager)
         {
+            // if isStartGame = false --> Option: Continue
+            Console.WriteLine($"This marked new Set Up log");
+            Console.WriteLine($"Is Start Game: {isStartGame}");
             _name = name;
             _saver = saver;
             _theme = theme;
-            
             _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, theme);
             _map = new Map();
             Console.WriteLine($"Level: {_saver.Level}");
             _map.GenerateMap();
             _player = (Player)_playerFactory.Create(_name, 250, 0);
-            if (_saver.Level >= 1)
+            if (isStartGame == false)
+                // Continue playing
             {
-                _isLoadedFromSave = true;
-                _loader.LoadSaveGame(_player, _saver);
+                _loader.LoadSaveGame(ref _player, ref _saver, ref _playerFactory, ref _enemyFactory, ref buffManager);
+                EnemyFactory tempEF = (EnemyFactory)_enemyFactory;
+                PlayerFactory tempPF = (PlayerFactory)_playerFactory;
+                Console.WriteLine($"PlayerFactory: {tempPF.BonusHP} {tempPF.BonusEnergy} {tempPF.BonusArmor} {tempPF.BonusSpeed}");
+                Console.WriteLine($"EnemyFactory: {tempEF.DecreaseHP} {tempEF.DecreaseSpeed} {tempEF.DecreaseDamage}");
+                Console.WriteLine($"Player: {_player.Name} {_player.Health} {_player.Energy} {_player.Coin}");
+                if(_saver.Level == 10)
+                {
+                    int rnd = SplashKit.Rnd(0, 3);
+                    switch (rnd)
+                    {
+                        case 0:
+                            _player.MaxHealth -= 80;
+                            _player.HealthChanged(0);
+                            break;
+                        case 1:
+                            _player.MaxEnergy -= 125;
+                            _player.EnergyChanged(0);
+                            break;
+                        case 2:
+                            _player.MaxArmor -= 50;
+                            _player.ArmorChanged(0);
+                            break;
+                    }
+                }
+                
+            } else
+            {
+                // Start new game
+                _loader.LoadDefault(_player, _saver);
+                saver.IsAbleToContinue = true;
+                isStartGame = false; // Set for later load
+                
             }
             _spawner.SetUpRoom(_characters, _items, _map.Rooms, _enemyFactory, _gateFactory, _theme);
             
@@ -109,10 +141,6 @@ namespace HideOut
                 }
             }
             _isSetUp = true;
-        }
-        public void LoadGameSave()
-        {
-
         }
         
         public void Update()
@@ -150,6 +178,7 @@ namespace HideOut
                     {
                         _saver.IsLost = true;
                         _isNotLost = false;
+                        _saver.SaveLost();
                     }
                     _characters.Remove(character);
                     
@@ -217,7 +246,7 @@ namespace HideOut
                     Gate gate = (Gate)item;
                     if (gate.Name == "OutGate" && gate.IsPlayerInteract)
                     {
-                        _saver.Save(_player);
+                        _saver.SaveWin(_player, _playerFactory, _enemyFactory);
                         _isNotLost = true;
                     }
                 }
@@ -320,42 +349,24 @@ namespace HideOut
         }
         public void UpdateBuff(BuffManager buffManager)
         {
+            // Update player factory
             PlayerFactory playerFactory = (PlayerFactory)_playerFactory;
-            while(playerFactory.BonusHP != buffManager.GetBuffIndex(0))
-            {
-                playerFactory.UpgradeBonusHP();
-            }
-            while(playerFactory.BonusEnergy != buffManager.GetBuffIndex(1))
-            {
-                playerFactory.UpgradeBonusEnergy();
-            }
-            while (playerFactory.BonusArmor != buffManager.GetBuffIndex(2))
-            {
-                playerFactory.UpgradeBonusArmor();
-            }
-            while (playerFactory.BonusSpeed != buffManager.GetBuffIndex(3))
-            {
-                playerFactory.UpgradeBonusSpeed();
-            }
+            playerFactory.BonusHP = buffManager.GetBuffIndex(0);
+            playerFactory.BonusEnergy = buffManager.GetBuffIndex(1);
+            playerFactory.BonusArmor = buffManager.GetBuffIndex(2);
+            playerFactory.BonusSpeed = buffManager.GetBuffIndex(3);
+            // Update enemy factory
             EnemyFactory enemyFactory = (EnemyFactory)_enemyFactory;
-            while (enemyFactory.DecreaseHP != buffManager.GetBuffIndex(4))
-            {
-                enemyFactory.UpgradeDecreaseHP();
-            }
-            while (enemyFactory.DecreaseSpeed != buffManager.GetBuffIndex(5))
-            {
-                enemyFactory.UpgradeDecreaseSpeed();
-            }
-            while (enemyFactory.DecreaseDamage != buffManager.GetBuffIndex(6))
-            {
-                enemyFactory.UpgradeDecreaseDamage();
-            }
+            enemyFactory.DecreaseHP = buffManager.GetBuffIndex(4);
+            enemyFactory.DecreaseSpeed = buffManager.GetBuffIndex(5);
+            _playerFactory = playerFactory;
             _enemyFactory = enemyFactory;
             _playerFactory = playerFactory;
             _isBuffUpdated = true;
         }
         public void FreeAll()
         {
+            Console.WriteLine("Inside Game Manager: Free All");
             foreach(Item item in _items)
             {
                 _items.Remove(item);
@@ -384,6 +395,7 @@ namespace HideOut
         public bool IsSetUp
         {
             get { return _isSetUp; }
+            set { _isSetUp = value; }
         }
         public bool IsNotLost
         {

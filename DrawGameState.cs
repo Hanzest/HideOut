@@ -24,6 +24,7 @@ namespace HideOut
         private List<Bitmap> _bitmaps = new List<Bitmap>();
         private CharacterLoader _characterLoader;
         private int _characterIndex;
+        private bool _isStartGame;
         // Game Play
         private int _theme;
         // Buff Purchase
@@ -33,9 +34,13 @@ namespace HideOut
         private int _buffIndex1;
         private int _buffIndex2;
         private Bitmap _bmpCoin;
+        // Win Game
+        private bool _isWinGame;
         public DrawGameState()
         {
             _characterIndex = 0;
+            _isStartGame = false;
+            _isWinGame = false;
             _theme = SplashKit.Rnd(0, 3);
             _bitmaps = new List<Bitmap>();
             _buffBitmaps = new List<Bitmap>();
@@ -73,6 +78,9 @@ namespace HideOut
                 case GameState.ChoosingCharacter:
                     DrawChoosingCharacter();
                     break;
+                case GameState.NotAbleToContinue:
+                    DrawNotAbleToContinue();
+                    break;
                 case GameState.DuringStage:
                     DrawDuringStage();
                     break;
@@ -89,10 +97,13 @@ namespace HideOut
         }
         public void UpdateGameState()
         {
-            _inputHandler.HandleMouseInput(_gameStateManager, ref _characterIndex, _bitmaps.Count, _buffManager, ref _buffIndex1, ref _buffIndex2);
+            
+            _inputHandler.HandleMouseInput(_gameStateManager, ref _characterIndex, _bitmaps.Count, _buffManager, ref _buffIndex1, ref _buffIndex2, ref _isStartGame, _saver);
         }
         public void DrawMainMenu()
         {
+            _isWinGame = false;
+            _saver.IsAbleToContinue = true;
             _drawingComponent.DrawRectangle(Color.RGBColor(117, 124, 106), Color.RGBColor(0, 123, 53), 450f, -50f, 740, 250);
             _drawText.DrawMontserratH1Custom("Hide Out", 800, 50, Color.RGBColor(255, 255, 255));
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1),
@@ -101,7 +112,10 @@ namespace HideOut
 
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1),
                                                 650f, 700f, 340, 75);
-            _drawText.DrawMontserratH3Custom("Instructions", 810, 710, Color.RGBColor(0, 0, 0));
+            _drawText.DrawMontserratH3Custom("Continue", 805, 710, Color.RGBColor(0, 0, 0));
+            _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1),
+                                                650f, 800f, 340, 75);
+            _drawText.DrawMontserratH3Custom("Instructions", 810, 810, Color.RGBColor(0, 0, 0));
         }
 
         public void DrawGameInstruction()
@@ -118,19 +132,25 @@ namespace HideOut
             else if (!_gameManager.IsSetUp)
             {
                 _theme = SplashKit.Rnd(0, 3);
-                _gameManager.SetUp(_bitmaps[_characterIndex].Name, _theme, _saver);
+                _gameManager.SetUp(_bitmaps[_characterIndex].Name, _theme, _saver, ref _isStartGame, ref _buffManager);
             } else 
             {
                 _gameManager.Update();
+                
+                if(_saver.IsAbleToContinue == false)
+                {
+                    _gameStateManager.SetState(GameState.NotAbleToContinue);
+                }
                 if (_gameManager.IsNotLost == false)
                 // player is lost
                 {
                     _gameStateManager.SetState(GameState.LoseGame);
                 }
-                else if (_saver.IsSaved == true)
+                else if (_gameManager.Saver.IsSaved == true)
                 {
-                    if (_saver.Level <= 10)
+                    if (_gameManager.Saver.Level <= 10)
                     {
+                        _saver.IsSaved = false;
                         _gameStateManager.SetState(GameState.BuffPurchase);
                     }
                     else
@@ -146,6 +166,7 @@ namespace HideOut
         }
         public void DrawChoosingCharacter()
         {
+            _isStartGame = true;
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
             // Back Btn
@@ -205,20 +226,35 @@ namespace HideOut
             }
             currentBmp.Draw(800 - currentBmp.Width/2, cardY + cardHeight - 250);
         }
+        public void DrawNotAbleToContinue()
+        {
+            if (!_gameManager.IsFreeAll)
+            {
+                _gameManager.FreeAll();
+            }
+            _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
+            _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
+
+            _drawingComponent.DrawRectangle(Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), 400, 450, 800, 150);
+            _drawText.DrawMontserratH1Custom("No Save Found", 725, 465, Color.RGBColor(0, 0, 0));
+        }
         public void DrawBuffPurchase()
         {
-            if (_saver.IsSaved)
+            if (!_saver.IsSaved)
+                // if the gameManager information is saved
             {
+                Console.WriteLine("this is called");
                 _saver = _gameManager.Saver;
-                _saver.Write();
-                _saver.IsSaved = false;
                 _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _gameManager.FreeAll();
+                // clear data of game Manager, set local saver to false
+                _saver.IsSaved = true;
             }
             int cnt = 0;
             while ((_buffIndex1 == _buffIndex2 || _buffManager.GetBuffIndex(_buffIndex1) == 2 || _buffManager.GetBuffIndex(_buffIndex2) == 2) && cnt < 1000)
             {
+                Console.WriteLine($"Buff1: {_buffIndex1} Buff2: {_buffIndex2}");
                 cnt++;
                 _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
@@ -232,9 +268,9 @@ namespace HideOut
             string buff1Name = _buffManager.GetBuffString(_buffIndex1);
             string buff2Name = _buffManager.GetBuffString(_buffIndex2);
             int cardX1 = 300;
-            int cardY1 = 220;
+            int cardY1 = 120;
             int cardX2 = 900;
-            int cardY2 = 220;
+            int cardY2 = 120;
             int cardWidth = 400;
             int cardHeight = 600;
             _drawingComponent.DrawRectangle(Color.White, Color.RGBColor(0, 134, 96),
@@ -267,17 +303,19 @@ namespace HideOut
 
             _drawText.DrawH1($"{_saver.Coin}", 1300 + 50, 40 + 68);
             _bmpCoin.Draw(1300, 40);
-        }
+            _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(0, 216, 68), Color.RGBColor(0, 118, 38), 550, 750, 500, 150);
+            _drawText.DrawMontserratH4Custom("Heal 20HP for 50 Coins", 785, 775, Color.Black);
+            _drawText.DrawMontserratH4Custom($"Current HP: {_saver.Health} / {_saver.MaxHealth}", 800, 835, Color.Black);
+        }   
         public void DrawGameOver()
         {
             if (!_gameManager.IsNotLost)
             {
-                _saver = _gameManager.Saver;
-                
-                _saver.IsSaved = false;
                 _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _gameManager.FreeAll();
+                _gameManager = new GameManager();
+                _saver = _gameManager.Saver;
             }
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
@@ -288,6 +326,17 @@ namespace HideOut
         }
         public void DrawWinGame()
         {
+            if (!_isWinGame)
+            {
+                _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
+                _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
+                _gameManager.FreeAll();
+                _gameManager = new GameManager();
+                _saver = _gameManager.Saver;
+                _saver.SaveFinish();
+                _isWinGame = true;
+            }
+            
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
 

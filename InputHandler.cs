@@ -98,7 +98,8 @@ namespace HideOut
 
         // Handle Mouse Input
         public void HandleMouseInput(GameStateManager gameStateManager, ref int characterIndex, int characterMaxIndex
-                                   , BuffManager buffManager, ref int buffIndex1, ref int buffIndex2)
+                                   , BuffManager buffManager, ref int buffIndex1, ref int buffIndex2, ref bool isStartGame
+                                   , Saver saver )
         {
             float mouseX = SplashKit.MouseX();
             float mouseY = SplashKit.MouseY();
@@ -107,12 +108,18 @@ namespace HideOut
             switch (gameStateManager.GetState())
             {
                 case GameState.MainMenu:
-                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 700, 775))
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 800, 875))
                     {
                         gameStateManager.SetState(GameState.GameInstruction);
                     }   else if(isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 600, 675))
                     {
+                        isStartGame = true;
                         gameStateManager.SetState(GameState.ChoosingCharacter);
+                    }
+                    else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 650, 990, 700, 775))
+                    {
+                        isStartGame = false;
+                        gameStateManager.SetState(GameState.DuringStage);
                     }
                     break;
                 case GameState.GameInstruction:
@@ -142,17 +149,34 @@ namespace HideOut
                         gameStateManager.SetState(GameState.DuringStage);
                     }
                         break;
-                case GameState.BuffPurchase:
-                   if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 325, 675, 720, 820))
+                case GameState.NotAbleToContinue:
+                    if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
                     {
-                        buffManager.UpgradeBuff(buffIndex1);
-                        gameStateManager.SetState(GameState.DuringStage);
-                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 925, 1275, 720, 820))
-                    {
-                        buffManager.UpgradeBuff(buffIndex2);
-                        gameStateManager.SetState(GameState.DuringStage);
+                        gameStateManager.SetState(GameState.MainMenu);
                     }
                     break;
+                case GameState.BuffPurchase:
+                   if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 325, 675, 620, 720))
+                    {
+                        buffManager.UpgradeBuff(buffIndex1);
+                        saver.SaveBuff(buffManager);
+                        saver.Write();
+                        saver.IsSaved = false;
+                        gameStateManager.SetState(GameState.DuringStage);
+
+                    } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 925, 1275, 620, 720))
+                    {
+                        buffManager.UpgradeBuff(buffIndex2);
+                        saver.SaveBuff(buffManager);
+                        saver.Write();
+                        saver.IsSaved = false;
+                        gameStateManager.SetState(GameState.DuringStage);
+                    } else if(isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 550, 1050, 750, 900))
+                    {
+                        saver.UpgradeHealth();
+                    }
+
+                        break;
                 case GameState.LoseGame:
                     if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 50, 215, 50, 125))
                     {
