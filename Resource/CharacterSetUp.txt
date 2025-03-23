@@ -1,0 +1,5 @@
+Resource\\Characters\\
+3
+alchemist
+wizard
+cowboy

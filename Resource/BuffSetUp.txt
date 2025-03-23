@@ -1,0 +1,9 @@
+Resource\\Buffs\\
+7
+heart
+energy
+armor
+speed
+decreaseHP
+decreaseSpeed
+decreaseDamage

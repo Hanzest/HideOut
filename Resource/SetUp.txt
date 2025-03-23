@@ -1,0 +1,67 @@
+Resource\\Characters\\
+Resource\\Effects\\
+Resource\\Items\\
+Resource\\Projectiles\\
+Resource\\Themes\\
+Resource\\Icons\\
+14
+alchemist
+scorpio
+shadow
+spider
+zombie
+mantis
+butterfly
+diamond
+cowboy
+wizard
+spike
+ghost
+rod
+scientist
+5
+bulletCollision
+cut
+paleslash
+scratch
+slash
+15
+Coin
+Energy Particle
+Energy potion
+Health potion
+Iron Sword
+Light Saber
+revolver
+rifle
+sawed-off shotgun
+sniper
+Broken Glass
+snipezooka
+fireBeam
+InGate
+OutGate
+7
+pistolBullet
+rifleBullet
+shotgunBullet
+sniperBullet
+snipezookaBullet
+fireBullet
+Glass
+3
+4
+shadow
+spider
+scorpio
+zombie
+4
+mantis
+butterfly
+diamond
+butterfly
+4
+ghost
+spike
+rod
+scientist
