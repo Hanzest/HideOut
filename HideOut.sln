@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HideOut", "HideOut.csproj", "{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02434E82-1EBB-4960-B87D-8EAE0EAA1EB9}
+	EndGlobalSection
+EndGlobal
