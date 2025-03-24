@@ -32,9 +32,18 @@ namespace HideOut
                     _lastAttackTime = currentTime;
                     _attackPosition = Attack(c, point2D, Width);
                     Angle = Math.Atan2(point2D.Y - c.Y, point2D.X - c.X);
-                    Projectile ? projectile = projectileFactory.Create(
-                        _bullet, _attackPosition.X, _attackPosition.Y, IsCritical,
-                        (float)Math.Atan2(point2D.Y - c.Y, point2D.X - c.X), Width / 2, c.Type);
+                    bool isSameRoom = (c.RoomIndex % 2 == 0) ? true : false;
+                    float attackPositionX = _attackPosition.X;
+                    float attackPositionY = _attackPosition.Y;
+                    int weaponWidthParameter = Width / 2;
+                    if (_bullet == "shotgunBullet")
+                    {
+                        weaponWidthParameter *= 2;
+                    }
+                        Projectile? projectile = projectileFactory.Create(
+                            _bullet, _attackPosition.X, _attackPosition.Y + 8, IsCritical,
+                            (float)Angle, weaponWidthParameter, c.Type,
+                            isSameRoom);
                     if (projectile == null)
                     {
                         return;

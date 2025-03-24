@@ -19,8 +19,7 @@ namespace HideOut
         }
         public void Add(Item item, Character c)
         {
-            
-            if(_items.Count == _maxSize)
+            if (_items.Count == _maxSize)
             {
                 GetItem.Display = true;
                 GetItem.InInventory = false;

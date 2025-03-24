@@ -24,7 +24,7 @@ namespace HideOut
         private CharacterType _shootBy;
         private int _width;
         private int _height;
-        public Projectile(string collision, string name, float x, float y, float velocity, int damage , bool isCritical, double angle, int weaponWidth, CharacterType shootBy, int width, int height)
+        public Projectile(string collision, string name, float x, float y, float velocity, int damage , bool isCritical, double angle, int weaponWidth, CharacterType shootBy, int width, int height, bool isSameRoom)
         {
             _collision = collision;
             _name = name;
@@ -47,7 +47,12 @@ namespace HideOut
             _shootBy = shootBy;
             _width = width;
             _height = height;
+            if (isSameRoom == false)
+            {
+                _damage = 0;
+            }
             _exist = true;
+
         }
         public string Collision
         {

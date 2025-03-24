@@ -22,6 +22,7 @@ namespace HideOut
         }
         public void SetUpRoom(HashSet<Character> characters, HashSet<Item> items, Room[] rooms, ICharacterFactory enemyFactory, IItemFactory gateFactory, int theme)
         {
+            // Spawn enemies and gates
             foreach (Room room in rooms)
             {
                 int centering = room.RoomWidth / 2 * room.TileSize;

@@ -137,7 +137,7 @@ namespace HideOut
             {
                 _gameManager.Update();
                 
-                if(_saver.IsAbleToContinue == false)
+                if(_gameManager.Saver.IsAbleToContinue == false)
                 {
                     _gameStateManager.SetState(GameState.NotAbleToContinue);
                 }
@@ -231,6 +231,7 @@ namespace HideOut
             if (!_gameManager.IsFreeAll)
             {
                 _gameManager.FreeAll();
+                _saver.SaveLost();
             }
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
@@ -243,7 +244,6 @@ namespace HideOut
             if (!_saver.IsSaved)
                 // if the gameManager information is saved
             {
-                Console.WriteLine("this is called");
                 _saver = _gameManager.Saver;
                 _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
@@ -254,7 +254,6 @@ namespace HideOut
             int cnt = 0;
             while ((_buffIndex1 == _buffIndex2 || _buffManager.GetBuffIndex(_buffIndex1) == 2 || _buffManager.GetBuffIndex(_buffIndex2) == 2) && cnt < 1000)
             {
-                Console.WriteLine($"Buff1: {_buffIndex1} Buff2: {_buffIndex2}");
                 cnt++;
                 _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
@@ -315,7 +314,7 @@ namespace HideOut
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _gameManager.FreeAll();
                 _gameManager = new GameManager();
-                _saver = _gameManager.Saver;
+                _saver.SaveLost();
             }
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));

@@ -31,6 +31,7 @@ namespace HideOut
         {
             _path = path;
             _drawRoom.Path = path;
+            Console.WriteLine($"Inside DrawMap, update DrawRoom Path to: {_path}");
             _drawRoom.UpdateTheme(theme);
         }
     }

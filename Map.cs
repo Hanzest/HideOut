@@ -18,7 +18,6 @@ namespace HideOut
         {
             _mapSize = RandomNumberGenerator.GetInt32(3, 7);
             _mapSize = _mapSize * 2 + 1;
-            _mapSize = 5;
             _theme = RandomNumberGenerator.GetInt32(1, 3);
             _maptructure = new int[_mapSize];
             GenerateMapStructure();

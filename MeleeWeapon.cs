@@ -78,7 +78,6 @@ namespace HideOut
             else
             {
                 double currentTime = SplashKit.CurrentTicks();
-                Console.WriteLine(currentTime);
                 if (currentTime - _lastAttackTime >= _attackCooldown)
                 {
                     _lastAttackTime = currentTime;

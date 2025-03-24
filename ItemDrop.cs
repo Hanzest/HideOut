@@ -16,18 +16,18 @@ namespace HideOut
         }
         public void Drop(IItemFactory wFactory, HashSet<Item> items, Point2D point2D)
         {
-            Console.WriteLine("Item Drop is called");
             int rnd = SplashKit.Rnd(1, 11);
             float x = point2D.X;
             float y = point2D.Y;
-            int willdrop = SplashKit.Rnd(0, 5);
+            int willdrop = SplashKit.Rnd(0, 10);
             WeaponFactory weaponFactory = (WeaponFactory)wFactory;
-            // Drop Rate: 40%;
+            // Drop Rate: 30%;
             if (willdrop <= 2)
             {
                 return;
             }
-            if (rnd <= 2)
+            if (rnd <= 4)
+                // 50% drop potion
             {
                 
                 int subrnd1 = SplashKit.Rnd(0, 2);
@@ -39,9 +39,10 @@ namespace HideOut
                 {
                     items.Add(_potionFactory.Create("Energy potion", x, y));
                 }
-            } else if(rnd <= 6)
+            } else if(rnd <= 7)
+            // 20% drop melee weapon
             {
-                
+
                 int subrnd2 = SplashKit.Rnd(0, 2);
                 if(subrnd2 == 0)
                 {
@@ -52,6 +53,7 @@ namespace HideOut
                     items.Add(weaponFactory.Create("Light Saber", x, y));
                 }
             } else
+            // 30% drop range weapon
             {
                 int subrnd3 = SplashKit.Rnd(0, 3);
                 switch (subrnd3)

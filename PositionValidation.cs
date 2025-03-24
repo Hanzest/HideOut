@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using SplashKitSDK;
 
 namespace HideOut
 {
@@ -90,14 +92,13 @@ namespace HideOut
             return false;
         }
         public static bool PointInRotatedRectangle(float posx, float posy, double angle,
-                                                   float xMin, float yMin, int width, int height)
+                                                   float centerX, float centerY, int width, int height)
         {
-            float centerX = xMin + width / 2;
-            float centerY = yMin + height / 2;
-            angle = -angle;
-            double reverseRotatedX = centerX + (posx - centerX) * Math.Cos(angle) - (posy - centerY) * Math.Sin(angle);
-            double reverseRotatedY = centerY + (posy - centerY) * Math.Sin(angle) + (posy + centerY) * Math.Cos(angle);
-            if (PointInRectangle((float)reverseRotatedX, (float)reverseRotatedY, xMin, xMin + width, yMin, yMin + height))
+            // Angle is in Radian. Positive angle is clockwise.
+            float distToCenter = (float)Math.Sqrt((posx - centerX) * (posx - centerX) + (posy - centerY) * (posy - centerY));
+            float anticipatedX = centerX + distToCenter * (float)Math.Cos(angle);
+            float anticipatedY = centerY + distToCenter * (float)Math.Sin(angle);
+            if (PointInRectangle(anticipatedX, anticipatedY, centerX - width / 2, centerX + width / 2, centerY - height / 2, centerY + height / 2))
             {
                 return true;
             }

@@ -56,7 +56,7 @@ namespace HideOut
                     }
                     else if (i == 5)
                     {
-                        // Default theme
+                        // Indicated Theme
                         dMap.SetPath(themeSource, theme);
                         for (int j = 0; j < cnt; j++)
                         {
@@ -69,7 +69,6 @@ namespace HideOut
                             }
                             lls.Add(ls);
                         }
-                        Console.WriteLine(lls.Count);
                         spawner.ThemeListEnemy = lls;
 
                     }
@@ -138,7 +137,7 @@ namespace HideOut
                     }
                 } else
                 {
-                    s.Level = 1;
+                    Console.WriteLine("None is loaded");
                     s.IsAbleToContinue = false;
                 }
                 

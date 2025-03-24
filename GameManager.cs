@@ -86,10 +86,13 @@ namespace HideOut
                 // Only allow theme 0 and 1 for level 1-3
                 theme = SplashKit.Rnd(0, 2);
             }
-            _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, theme);
+            _theme = theme;
+            Console.WriteLine($"Theme: {_theme}");
+            _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, _theme);
             _map = new Map();
             Console.WriteLine($"Level: {_saver.Level}");
             _map.GenerateMap();
+            _isFreeAll = false;
             _player = (Player)_playerFactory.Create(_name, 250, 0);
             if (isStartGame == false)
                 // Continue playing
@@ -124,15 +127,16 @@ namespace HideOut
             } else
             {
                 // Start new game
+                Console.WriteLine($"Inside GameManager: Start Default Game");
                 _loader.LoadDefault(_player, _saver);
                 saver.IsAbleToContinue = true;
                 isStartGame = false; // Set for later load
-                
             }
             _spawner.SetUpRoom(_characters, _items, _map.Rooms, _enemyFactory, _gateFactory, _theme);
             
             _characters.Add(_player);
             _items.Add(_weaponFactory.Create("revolver", 300f, 0));
+            _items.Add(_weaponFactory.Create("sawed-off shotgun", 450f, 0));
             //Item lightSaber = _meleeWeaponFactory.Create("Light Saber", 0, 0);
             //_items.Add(lightSaber);
             //_player.Inventory.Add(lightSaber, _player);
@@ -295,8 +299,7 @@ namespace HideOut
         public void Draw()
         {
             _drawMap.Draw(_map);
-            
-            foreach(Item item in _items)
+            foreach (Item item in _items)
             {
                 if(item.Type == ItemType.Gate)
                 {

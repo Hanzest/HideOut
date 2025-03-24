@@ -220,15 +220,22 @@ namespace HideOut
                     }
                     Point2D point2D = new Point2D((float)Math.Cos(p.Angle), (float)Math.Sin(p.Angle));
                     TakeDamage(p.Damage, point2D, rooms);
-                    //if (CheckValidMove(X + (float)Math.Cos(p.Angle) * 25, Y, rooms, Width, Height))
-                    //{
-                    //    X = X + (float)Math.Cos(p.Angle) * 25;
-                    //}
+                    if (CheckValidMove(X + (float)Math.Cos(p.Angle) * 25, Y, rooms, Width, Height))
+                    {
+                        X = X + (float)Math.Cos(p.Angle) * 25;
+                    }
                     if (CheckValidMove(X, Y + (float)Math.Sin(p.Angle) * 25, rooms, Width, Height))
                     {
                         Y = Y + (float)Math.Sin(p.Angle) * 25;
                     }
-                    
+                } else if ((PositionValidation.PointInRotatedRectangle(X, Y, p.Angle, p.X, p.Y, p.Width, p.Height)
+                    || PositionValidation.PointInRectangle(p.X, p.Y, X - Width / 2, X + Width / 2
+                                                                   , Y - Height / 2, Y + Height / 2))
+                    && ((Type != CharacterType.Player && p.ShootBy == CharacterType.Player)
+                        || (Type == CharacterType.Player && p.ShootBy != CharacterType.Player)
+                    ))
+                {
+                    p.Collided = true;
                 }
             }
         }
@@ -270,6 +277,7 @@ namespace HideOut
                 point2D = Coordinate() + point2D;
             }
             float dist = 1036800;
+            // 15 tiles for 48 x 48 tile block
             _enemyNearBy = false;
             foreach (Character character in characters)
             {

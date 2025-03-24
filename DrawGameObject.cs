@@ -169,7 +169,7 @@ namespace HideOut
                 Bitmap projectile = GetBitmap(p.Name);
                 if (projectile != null)
                 {
-                    projectile.DrawRotated(p.X - projectile.Width/2, p.Y - projectile.Height/2, p.Angle);
+                    projectile.DrawRotated(p.X - p.Width/2, p.Y - p.Height/2, p.Angle);
                 }
             }
         }

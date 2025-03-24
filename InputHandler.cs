@@ -36,42 +36,7 @@ namespace HideOut
                 bool ok = false;
                 foreach (Item item in items)
                 {
-                    if (item.NearByPlayer(player, map.Rooms[0].TileSize) &&
-                        !item.InInventory)
-                    {
-                        switch (item.Type)
-                        {
-                            case ItemType.Potion:
-                                Potion potion = (Potion)item;
-                                potion.UseBy(player);
-                                ok = true;
-                                break;
-                            case ItemType.RangeWeapon:
-                                RangeWeapon rWeapon = (RangeWeapon)item;
-                                rWeapon.UseBy(player, player.NearestEnemy(characters), effects,
-                                    effectFactory, projectiles, projectileFactory);
-                                player.Inventory.Add(rWeapon, player);
-                                ok = true;
-                                break;
-                            case ItemType.MeleeWeapon:
-                                MeleeWeapon mWeapon = (MeleeWeapon)item;
-                                mWeapon.UseBy(player, player.NearestEnemy(characters), effects,
-                                    effectFactory, projectiles, projectileFactory);
-                                player.Inventory.Add(mWeapon, player);
-                                ok = true;
-                                break;
-                            case ItemType.Gate:
-                                Gate gate = (Gate)item;
-                                if(gate.Name == "OutGate")
-                                {
-                                    gate.Interact(player);
-                                    ok = true;
-                                    break;
-                                }
-                                break;
-                        }
-                        if (ok) break;
-                    } else if (item.InInventory && player.Inventory.GetItem == item)
+                    if (item.InInventory && player.Inventory.GetItem == item)
                     {
                         switch (item.Type)
                         {
@@ -93,6 +58,52 @@ namespace HideOut
             {
                 player.Inventory.IncrementIndex();
  
+            }
+            if (SplashKit.KeyTyped(KeyCode.LKey))
+            {
+                foreach(Item item in items)
+                {
+                    if (item.NearByPlayer(player, map.Rooms[0].TileSize) &&
+                            !item.InInventory)
+                    {
+                        bool ifAlreadyInteract = false;
+                        switch (item.Type)
+                        {
+                            case ItemType.Potion:
+                                Potion potion = (Potion)item;
+                                potion.UseBy(player);
+                                ifAlreadyInteract = true;
+                                break;
+                            case ItemType.RangeWeapon:
+                                RangeWeapon rWeapon = (RangeWeapon)item;
+                                rWeapon.UseBy(player, player.NearestEnemy(characters), effects,
+                                    effectFactory, projectiles, projectileFactory);
+                                player.Inventory.Add(rWeapon, player);
+                                ifAlreadyInteract = true;
+                                break;
+                            case ItemType.MeleeWeapon:
+                                MeleeWeapon mWeapon = (MeleeWeapon)item;
+                                mWeapon.UseBy(player, player.NearestEnemy(characters), effects,
+                                    effectFactory, projectiles, projectileFactory);
+                                player.Inventory.Add(mWeapon, player);
+                                ifAlreadyInteract = true;
+                                break;
+                            case ItemType.Gate:
+                                Gate gate = (Gate)item;
+                                if (gate.Name == "OutGate")
+                                {
+                                    gate.Interact(player);
+                                    ifAlreadyInteract = true;
+                                    break;
+                                }
+                                break;
+                        }
+                        if(ifAlreadyInteract)
+                        {
+                            break;
+                        }
+                    }
+                }
             }
         }
 

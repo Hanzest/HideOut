@@ -33,14 +33,26 @@ namespace HideOut
         public void UpdateTheme(int theme)
         {
             string curPath = $"{_path}{theme}\\";
-            Console.WriteLine(curPath);
+            Console.WriteLine($"Current Path Inside DrawRoom: {curPath}");
             for(int i = 0; i < 3; i++)
             {
+                
                 if (_floor[i] != null)
                 {
+                    Console.WriteLine($"Inside DrawRoom: Freeing Floor{i}");
                     _floor[i].Free();
+                } else
+                {
+                    Console.WriteLine($"Inside DrawRoom: Floor{i} is null");
+                    Console.WriteLine($"Inside DrawRoom: Expected Bitmap Path: {curPath}floor{i}.png");
                 }
                 _floor[i] = new Bitmap($"floor{i}", $"{curPath}floor{i}.png");
+                Console.WriteLine($"Inside DrawRoom: Actual Bitmap Path: {_floor[i].Filename}");
+                while (_floor[i].Filename != curPath + $"floor{i}.png")
+                {
+                    _floor[i].Free();
+                    _floor[i] = new Bitmap($"floor{i}", $"{curPath}floor{i}.png");
+                }
             }
             if(_barrier != null)
             {
@@ -57,7 +69,21 @@ namespace HideOut
             _barrier = new Bitmap("barrier", curPath + "barrier.png");
             _hwall = new Bitmap("hwall", curPath + "hwall.png");
             _vwall = new Bitmap("vwall", curPath + "vwall.png");
-            
+            while(_barrier.Filename != curPath + "barrier.png")
+            {
+                _barrier.Free();
+                _barrier = new Bitmap("barrier", curPath + "barrier.png");
+            }
+            while(_hwall.Filename != curPath + "hwall.png")
+            {
+                _hwall.Free();
+                _hwall = new Bitmap("hwall", curPath + "hwall.png");
+            }
+            while (_vwall.Filename != curPath + "vwall.png")
+            {
+                _vwall.Free();
+                _vwall = new Bitmap("vwall", curPath + "vwall.png");
+            }
         }
         // _roomArray description:
         // 0: Floor
