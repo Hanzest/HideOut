@@ -20,7 +20,7 @@ namespace HideOut
         {
             get { return _inventory; }
         }
-        public void FindPlayerNearby(Player p, Room[] rooms)
+        public override void FindPlayerNearby(Player p, Room[] rooms)
         {
             IsAttack = false;
             if ((Math.Abs(p.X - X) <= 18 * rooms[0].TileSize) && (Math.Abs(p.Y - Y) <= 18 * rooms[0].TileSize) 
@@ -29,7 +29,6 @@ namespace HideOut
                 Move(p, rooms);
                 IsAttack = true;
             }
-            
         }
         public override void Move(Player p, Room[] rooms)
         {

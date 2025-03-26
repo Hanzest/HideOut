@@ -34,6 +34,7 @@ namespace HideOut
         private int _buffIndex1;
         private int _buffIndex2;
         private Bitmap _bmpCoin;
+        private Bitmap _instruction;
         // Win Game
         private bool _isWinGame;
         public DrawGameState()
@@ -59,6 +60,7 @@ namespace HideOut
             _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
             _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
             _bmpCoin = new Bitmap("Coin", "Resource\\Icons\\Coin.png");
+            _instruction = new Bitmap("Instruction", "Resource\\Console\\Instruction.png");
         }
 
         public void Draw()
@@ -120,6 +122,7 @@ namespace HideOut
 
         public void DrawGameInstruction()
         {
+            _instruction.Draw(800 - _instruction.Width / 2, 480 - _instruction.Height / 2);
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(165, 255, 1), Color.RGBColor(105, 195, 1), 50, 50, 165, 75);
             _drawText.DrawMontserratH3Custom("Back", 120, 60, Color.RGBColor(0, 0, 0));
         }
@@ -136,8 +139,8 @@ namespace HideOut
             } else 
             {
                 _gameManager.Update();
-                
-                if(_gameManager.Saver.IsAbleToContinue == false)
+
+                if (_gameManager.Saver.IsAbleToContinue == false)
                 {
                     _gameStateManager.SetState(GameState.NotAbleToContinue);
                 }
@@ -160,7 +163,13 @@ namespace HideOut
                 }
                 else
                 {
-                    _gameManager.Draw();
+                    if (_gameManager.Saver.IsAbleToContinue == true)
+                    {
+                        _gameManager.Draw();
+                    } else
+                    {
+                        DrawLoading();
+                    }
                 }
             }
         }
@@ -343,5 +352,13 @@ namespace HideOut
             _drawingComponent.DrawRectangle(Color.RGBColor(117, 124, 106), Color.RGBColor(0, 123, 53), 500, 450, 600, 150);
             _drawText.DrawMontserratH1Custom("You Win!", 745, 465, Color.RGBColor(0, 0, 0));
         }
+        public void DrawLoading()
+        {
+            Point2D p2d = new Point2D(0, 0);
+            SplashKit.SetCameraPosition(p2d.ToSplashKitPoint());
+            _drawingComponent.DrawRectangle(Color.RGBColor(117, 124, 106), Color.RGBColor(0, 123, 53), 500, 450, 600, 150);
+            _drawText.DrawMontserratH1Custom("Loading...", 745, 465, Color.RGBColor(0, 0, 0));
+        }
     }
+    
 }

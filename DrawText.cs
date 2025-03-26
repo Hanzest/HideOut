@@ -11,17 +11,11 @@ namespace HideOut
     {
         private Font _myFont;
         private Font _montserrat;
-        private Font _kagayamaKai;
         public DrawText() 
         {
-            _myFont = SplashKit.LoadFont("ThaleahFat", "" +
-                "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\" +
-                "Week 6 HD Custom Program\\Hideout\\Resource\\Fonts\\" +
+            _myFont = SplashKit.LoadFont("ThaleahFat", "Resource\\Fonts\\" +
                 "ThaleahFat.ttf");
-            _montserrat = SplashKit.LoadFont("Montserrat", "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\" +
-                "HideOut\\Resource\\Fonts\\static\\Montserrat-ExtraBold.ttf");
-            _kagayamaKai = SplashKit.LoadFont("KagayamaKa", "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\" +
-                "HideOut\\Resource\\Fonts\\KagayamaKai.ttf");
+            _montserrat = SplashKit.LoadFont("Montserrat", "Resource\\Fonts\\static\\Montserrat-ExtraBold.ttf");
         }
         public void DrawH1(string text, float x, float y)
         {

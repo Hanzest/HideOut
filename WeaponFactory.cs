@@ -21,7 +21,7 @@ namespace HideOut
             {
                 return _meleeWeaponFactory.Create(name, x, y);
             }
-            else if (name == "revolver" || name == "sawed-off shotgun" || name == "sniper" || name == "rifle" || name == "Broken Glass" || name == "snipezooka" || name == "fireBeam")
+            else if (name == "revolver" || name == "sawed-off shotgun" || name == "sniper" || name == "rifle" || name == "Broken Glass" || name == "snipezooka" || name == "fireBeam" || name == "fireWand")
             {
                 return _rangeWeaponFactory.Create(name, x, y);
             }

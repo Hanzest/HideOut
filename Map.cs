@@ -23,10 +23,6 @@ namespace HideOut
             GenerateMapStructure();
             _rooms = new Room[_mapSize];
         }
-        public int Theme
-        {
-            get { return _theme; }
-        }
         public int MapSize
         {
             get { return _mapSize; }

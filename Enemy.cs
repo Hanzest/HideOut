@@ -38,6 +38,7 @@ namespace HideOut
         }
 
         public abstract void Move(Player p, Room[] rooms);
+        public abstract void FindPlayerNearby(Player p, Room[] rooms);
         public Point2D SetRandomDirection(Room[] rooms)
         {
             float a = SplashKit.Rnd(-314, 314) / 100;

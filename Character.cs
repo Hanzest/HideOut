@@ -185,17 +185,17 @@ namespace HideOut
         }
         public virtual bool CheckValidMove(float posx, float posy, Room[] rooms, int width, int height)
         {
-            bool a = PositionValidation.CheckValid(posx - width / 2, posy - (float)(height / 8), rooms);
-            bool b = PositionValidation.CheckValid(posx + width / 2, posy - (float)(height / 8), rooms);
-            bool c = PositionValidation.CheckValid(posx - width / 2, posy + (float)(height / (8f / 3f)), rooms);
-            bool d = PositionValidation.CheckValid(posx + width / 2, posy + (float)(height / (8f / 3f)), rooms);
+            bool a = PositionValidation.CheckValid(posx + 4 - width / 2, posy - (float)(height / 8), rooms);
+            bool b = PositionValidation.CheckValid(posx - 4 + width / 2, posy - (float)(height / 8), rooms);
+            bool c = PositionValidation.CheckValid(posx + 4 - width / 2, posy + (float)(height / (8f / 3f)), rooms);
+            bool d = PositionValidation.CheckValid(posx - 4 + width / 2, posy + (float)(height / (8f / 3f)), rooms);
             //      .       .       .
             //      .       x       .
             //      .       .       .
             bool e = PositionValidation.CheckValid(posx, posy - (float)(height / 8), rooms);
             bool f = PositionValidation.CheckValid(posx, posy + (float)(height / (8f / 3f)), rooms);
-            bool g = PositionValidation.CheckValid(posx - width / 2, posy, rooms);
-            bool h = PositionValidation.CheckValid(posx + width / 2, posy, rooms);
+            bool g = PositionValidation.CheckValid(posx + 4 - width / 2, posy, rooms);
+            bool h = PositionValidation.CheckValid(posx - 4 + width / 2, posy, rooms);
             if (a && b && c && d && e && f && g && h)
             {
                 return true;

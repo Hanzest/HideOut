@@ -126,7 +126,8 @@ namespace HideOut
         }
         public bool CheckValidMove(float x, float y, Room[] rooms)
         {
-            return PositionValidation.CheckValid(x, y, rooms);
+            return (PositionValidation.CheckValid(x, y, rooms) && PositionValidation.CheckValid(x, y - _height / 10, rooms)
+                    && PositionValidation.CheckValid(x, y + _height / 10, rooms));
         }
     }
 }

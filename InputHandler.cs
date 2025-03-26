@@ -210,7 +210,6 @@ namespace HideOut
                                 EffectFactory effectFactory, ProjectileFactory projectileFactory)
         {
             HandleKeyboardInput(player, map, projectiles, items, characters, effects, effectFactory, projectileFactory);
-            // HandleMouseInput();
         }
     }
 

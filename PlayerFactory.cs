@@ -24,11 +24,11 @@ namespace HideOut
             switch (name)
             {
                 case "alchemist":
-                    return new Player(name, 150 + _bonusHP * 25, 200 + _bonusEnergy * 25, 55 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, 96, 128);
+                    return new Player(name, 150 + _bonusHP * 25, 200 + _bonusEnergy * 25, 55 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, "revolver", 96, 128);
                 case "wizard":
-                    return new Player(name, 100 + _bonusHP * 25, 300 + _bonusEnergy * 25, 40 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, 96, 128);
+                    return new Player(name, 100 + _bonusHP * 25, 300 + _bonusEnergy * 25, 40 + _bonusArmor * 10, CharacterType.Player, x, y, 10f + _bonusSpeed * 2, "fireWand", 96, 128);
                 case "cowboy":
-                    return new Player(name, 125 + _bonusHP * 25, 150 + _bonusEnergy * 25, 65 + _bonusArmor * 10, CharacterType.Player, x, y, 12f + _bonusSpeed * 2, 96, 128);
+                    return new Player(name, 125 + _bonusHP * 25, 150 + _bonusEnergy * 25, 65 + _bonusArmor * 10, CharacterType.Player, x, y, 12f + _bonusSpeed * 2, "revolver", 96, 128);
                 default:
                     return null;
             }

@@ -19,7 +19,7 @@ namespace HideOut
             _damage = damage;
             _range = range;
         }
-        public void FindPlayerNearby(Player p, Room[] rooms)
+        public override void FindPlayerNearby(Player p, Room[] rooms)
         {
             if ((Math.Abs(p.X - X) <= 15 * rooms[0].TileSize) && (Math.Abs(p.Y - Y) <= 15 * rooms[0].TileSize) && p.RoomIndex == this.RoomIndex)
             {

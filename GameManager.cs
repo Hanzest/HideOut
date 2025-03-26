@@ -129,17 +129,16 @@ namespace HideOut
                 // Start new game
                 Console.WriteLine($"Inside GameManager: Start Default Game");
                 _loader.LoadDefault(_player, _saver);
+                RangeWeapon personalItem = (RangeWeapon)_weaponFactory.Create(_player.PersonalItem, 0f, 0f);
+                _player.Inventory.Add(personalItem, _player);
+                _items.Add(personalItem);
                 saver.IsAbleToContinue = true;
                 isStartGame = false; // Set for later load
             }
             _spawner.SetUpRoom(_characters, _items, _map.Rooms, _enemyFactory, _gateFactory, _theme);
             
             _characters.Add(_player);
-            _items.Add(_weaponFactory.Create("revolver", 300f, 0));
-            _items.Add(_weaponFactory.Create("sawed-off shotgun", 450f, 0));
-            //Item lightSaber = _meleeWeaponFactory.Create("Light Saber", 0, 0);
-            //_items.Add(lightSaber);
-            //_player.Inventory.Add(lightSaber, _player);
+            _items.Add(_weaponFactory.Create("revolver", 450f, 0));
             foreach (Character character in _characters)
             {
                 if (character.Type == CharacterType.RangeEnemy)
@@ -153,7 +152,7 @@ namespace HideOut
         
         public void Update()
         {
-            _inputHandler.HandleInput(_player, _map, _projectiles,
+            _inputHandler.HandleKeyboardInput(_player, _map, _projectiles,
                                         _items, _characters, _effects,
                                         _effectFactory, _projectileFactory);
             foreach (Character character in _characters)
@@ -171,7 +170,7 @@ namespace HideOut
                     for(int i = 0; i < 8; i++)
                         // Create rewards
                     {
-                        int rndEnergy = SplashKit.Rnd(0, 2);
+                        int rndEnergy = SplashKit.Rnd(0, 4);
                         int rndCoin = SplashKit.Rnd(0, 2);
                         if(rndEnergy == 1)
                         {
@@ -311,6 +310,7 @@ namespace HideOut
             _drawGameObject.Draw(_characters);
             _drawGameObject.Draw(_projectiles);
             _drawGameObject.Draw(_effects);
+            // Effect is not game Object but drawGameObject can draw it.
            _drawGameObject.Draw(_items, _player.NearestEnemyAngle(_player.NearestEnemy(_characters)));
             foreach (Item item in _items)
             {

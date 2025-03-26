@@ -9,6 +9,7 @@ namespace HideOut
 {
     public class Player : Character
     {
+        private string _personalItem;
         private int _coin;
         private int _armor;
         private int _maxArmor;
@@ -18,7 +19,7 @@ namespace HideOut
         private int _maxArmorTick;
         private Inventory _inventory;
         // Player size: 96 x 128
-        public Player(string name, int health, int maxEnergy, int maxArmor, CharacterType type, float x,float y, float velocity, int width, int height) : base(name, health, type, width, height)
+        public Player(string name, int health, int maxEnergy, int maxArmor, CharacterType type, float x,float y, float velocity, string personalItem, int width, int height) : base(name, health, type, width, height)
         {
             X = x;
             Y = y;
@@ -27,6 +28,7 @@ namespace HideOut
             _armor = maxArmor;
             _maxArmor = maxArmor;
             Velocity = velocity;
+            _personalItem = personalItem;
             _inventory = new Inventory(2);
             _armorTick = 80;
             _maxArmorTick = 80;
@@ -127,6 +129,10 @@ namespace HideOut
                     _armor = 0;
                 }
             }
+        }
+        public string PersonalItem
+        {
+            get { return _personalItem; }
         }
     }
 }
