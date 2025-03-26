@@ -19,13 +19,14 @@ spike
 ghost
 rod
 scientist
-5
+6
 bulletCollision
 cut
 paleslash
 scratch
 slash
-15
+fireExplosion
+16
 Coin
 Energy Particle
 Energy potion
@@ -39,15 +40,17 @@ sniper
 Broken Glass
 snipezooka
 fireBeam
+fireWand
 InGate
 OutGate
-7
+8
 pistolBullet
 rifleBullet
 shotgunBullet
 sniperBullet
 snipezookaBullet
 fireBullet
+fireParticle
 Glass
 3
 4
