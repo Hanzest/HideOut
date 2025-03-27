@@ -72,10 +72,6 @@ namespace HideOut
         public static bool RectangleToRectangle(float x1Min, float x1Width, float y1Min, float y1Height,
                                                 float x2Min, float x2Width, float y2Min, float y2Height)
         {
-            x1Min = x1Min - x1Width / 2;
-            y1Min = y1Min - y1Height / 2;
-            x2Min = x2Min - x2Width / 2;
-            y2Min = y2Min - y2Height / 2;
             if(PointInRectangle(x1Min, y1Min, x2Min, x2Min + x2Width, y2Min, y2Min + y2Height) ||
                PointInRectangle(x1Min, y1Min + y1Height / 2, x2Min, x2Min + x2Width, y2Min, y2Min + y2Height) ||
                PointInRectangle(x1Min, y1Min + y1Height, x2Min, x2Min + x2Width, y2Min, y2Min + y2Height) ||

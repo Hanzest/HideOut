@@ -89,7 +89,6 @@ namespace HideOut
                         return;
                     } else
                     {
-                        
                         if (c.Type == CharacterType.Player)
                         {
                             Player p = (Player)c;

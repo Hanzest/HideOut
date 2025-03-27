@@ -107,6 +107,7 @@ namespace HideOut
         }
         public void SaveWin(Player player, ICharacterFactory pFactory ,ICharacterFactory eFactory)
         {
+            _itemName.Clear();
             Console.WriteLine("Inside Game Manager: Save Win");
             IsSaved = true;
             _level = _level + 1;

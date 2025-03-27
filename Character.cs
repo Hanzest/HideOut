@@ -136,6 +136,10 @@ namespace HideOut
         public virtual void TakeDamage(int value, Point2D dir, Room[] rooms)
         {
             HealthChanged(-value);
+            if (CheckValidMove(X + dir.X, Y, rooms, Width, Height))
+            {
+                X = X += dir.X;
+            }
         }
         public Point2D Coordinate()
         {
@@ -249,14 +253,15 @@ namespace HideOut
                     MeleeWeapon mWeapon = (MeleeWeapon)item;
                     if (mWeapon.IsAttack && mWeapon.Holder != Type)
                     {
-                        int knockback = -30;
+                        int knockback = 25;
                         float mWeaponXpara = mWeapon.X;
-                        if (mWeapon.FaceLeft)
+                        if (!mWeapon.FaceLeft)
                         {
-                            knockback = 30;
-                            mWeaponXpara -= 40 + mWeapon.Width / 2;
+                            knockback = -25;
+                            mWeaponXpara -= mWeapon.Width / 2 * (float)Math.Sqrt(1.35f);
                         }
-                        if (PositionValidation.RectangleToRectangle(X, Width, Y, Height, mWeaponXpara, mWeapon.Width / 2, mWeapon.Y, mWeapon.Height))
+                        if (PositionValidation.RectangleToRectangle(X - Width / 2, Width, Y - Height / 2, Height
+                            , mWeaponXpara, mWeapon.Width / 2 * (float)Math.Sqrt(1.35f), mWeapon.Y - mWeapon.Height / 2, mWeapon.Height))
                         {
                             Point2D point2D = new Point2D(knockback, 0);
                             TakeDamage(mWeapon.Damage, point2D, rooms);

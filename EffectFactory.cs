@@ -23,8 +23,12 @@ namespace HideOut
                     return new Effect(name, x, y, 16, faceLeft, 8);
                 case "paleslash":
                     return new Effect(name, x, y, 32, faceLeft, 8);
+                case "bigslash":
+                    return new Effect(name, x, y, 32, faceLeft, 8);
                 case "fireExplosion":
-                    return new Effect(name, x, y - 24, 24, faceLeft, 4);
+                    return new Effect(name, x, y, 24, faceLeft, 4);
+                case "radiation":
+                    return new Effect(name, x, y, 24, faceLeft, 4);
                 default:
                     return null;
             }

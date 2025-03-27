@@ -16,7 +16,9 @@ namespace HideOut
                 case "Iron Sword":
                     return new MeleeWeapon(ItemType.MeleeWeapon, name, "paleslash", x, y, 35, 0, 1500, 32, 160, 160);
                 case "Light Saber":
-                    return new MeleeWeapon(ItemType.MeleeWeapon, name, "slash", x, y, 20, 0,400, 16, 160, 160);
+                    return new MeleeWeapon(ItemType.MeleeWeapon, name, "slash", x, y, 20, 0, 400, 16, 160, 160);
+                case "Longsword":
+                    return new MeleeWeapon(ItemType.MeleeWeapon, name, "bigslash", x, y, 14, 10, 1500, 32, 480, 480);
                 default:
                     return null;
             }

@@ -47,8 +47,11 @@ namespace HideOut
                                 break;
                             case ItemType.MeleeWeapon:
                                 MeleeWeapon mWeapon = (MeleeWeapon)item;
-                                mWeapon.UseBy(player, player.NearestEnemy(characters), effects,
+                                if(player.RoomIndex % 2 == 0)
+                                {
+                                    mWeapon.UseBy(player, player.NearestEnemy(characters), effects,
                                     effectFactory, projectiles, projectileFactory);
+                                }
                                 break;
                         }
                     }

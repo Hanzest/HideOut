@@ -81,15 +81,19 @@ namespace HideOut
             _name = name;
             _saver = saver;
             _theme = theme;
+            Console.WriteLine(theme);
             if(saver.Level <= 3 && theme == 2)
             {
                 // Only allow theme 0 and 1 for level 1-3
                 theme = SplashKit.Rnd(0, 2);
+            } else if (_saver.Level == 7 || _saver.Level == 10)
+            {
+                _theme = 3;
             }
-            _theme = theme;
             Console.WriteLine($"Theme: {_theme}");
             _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, _theme);
             _map = new Map();
+            
             Console.WriteLine($"Level: {_saver.Level}");
             _map.GenerateMap();
             _isFreeAll = false;
@@ -129,7 +133,7 @@ namespace HideOut
                 // Start new game
                 Console.WriteLine($"Inside GameManager: Start Default Game");
                 _loader.LoadDefault(_player, _saver);
-                RangeWeapon personalItem = (RangeWeapon)_weaponFactory.Create(_player.PersonalItem, 0f, 0f);
+                Item personalItem = _weaponFactory.Create(_player.PersonalItem, 0f, 0f);
                 _player.Inventory.Add(personalItem, _player);
                 _items.Add(personalItem);
                 saver.IsAbleToContinue = true;

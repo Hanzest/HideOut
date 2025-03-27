@@ -36,7 +36,10 @@ namespace HideOut
                                     0, 0, 18, 1, 1);
                 case "fireWand":
                     return new RangeWeapon(ItemType.RangeWeapon, name, "fireParticle", "fireExplosion", x, y,
-                                    0, 5, 500, 64, 96);
+                                    0, 8, 500, 64, 96);
+                case "Plutonium":
+                    return new RangeWeapon(ItemType.RangeWeapon, name, "Plutoniumball", "radiation", x, y,
+                                    0, 10, 550, 60, 80);
                 default:
                     return null;
             }

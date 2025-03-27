@@ -45,7 +45,7 @@ namespace HideOut
                     break;
                 case ClassType.Effect:
                     int q = 4;
-                    if (name == "slash" || name == "paleslash")
+                    if (name == "slash" || name == "paleslash" || name == "bigslash")
                         q = 8;
                     for (int i = 1; i <= q; i++)
                     {
@@ -139,13 +139,15 @@ namespace HideOut
                                     MeleeWeapon mWeapon = (MeleeWeapon)item;
                                     if (Math.Abs(item.Angle) < 1.57)
                                     {
-                                        bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, mWeapon.Angle);
+                                        bmp.DrawRotated(mWeapon.X - mWeapon.Width / 2, mWeapon.Y - mWeapon.Height / 2, mWeapon.Angle);
+                                        
                                     }
                                     else
                                     {
                                         bmp = GetBitmap("flip" + item.Name);
                                         if (bmp != null)
-                                            bmp.DrawRotated(item.X - bmp.Width / 2, item.Y - bmp.Height / 2, - mWeapon.Angle);
+                                        bmp.DrawRotated(mWeapon.X - mWeapon.Width / 2, mWeapon.Y - mWeapon.Height / 2, - mWeapon.Angle);
+                                        
                                     }
                                     break;
                             }
