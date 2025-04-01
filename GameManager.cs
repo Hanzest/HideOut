@@ -80,16 +80,15 @@ namespace HideOut
             Console.WriteLine($"Is Start Game: {isStartGame}");
             _name = name;
             _saver = saver;
-            _theme = theme;
-            Console.WriteLine(theme);
             if(saver.Level <= 3 && theme == 2)
             {
                 // Only allow theme 0 and 1 for level 1-3
                 theme = SplashKit.Rnd(0, 2);
             } else if (_saver.Level == 7 || _saver.Level == 10)
             {
-                _theme = 3;
+                theme = 3;
             }
+            _theme = theme;
             Console.WriteLine($"Theme: {_theme}");
             _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, _theme);
             _map = new Map();
