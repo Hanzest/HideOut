@@ -1,0 +1,1020 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawgamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawgamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:saver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\positionvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:positionvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawgameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawgameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\projectilefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:projectilefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\effectfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:effectfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\weaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:weaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\rangeweaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:rangeweaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\playerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:playerfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:inputhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\meleeweaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:meleeweaponfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\meleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:meleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\direction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:direction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\charactertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:charactertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\buffloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:buffloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\characterloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:characterloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\classtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:classtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\iitemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:iitemfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\icharacterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:icharacterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\rangeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:rangeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawingcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawingcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawstatusboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawstatusboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\effect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:effect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\potion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:potion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\potionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:potionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\rangeenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:rangeenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\meleeenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:meleeenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\buffmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:buffmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\streamextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:streamextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\hideout.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:hideout.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\itemdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:itemdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\bitmapextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:bitmapextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\resource\\setup.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:resource\\setup.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\drawmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:drawmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\gamestatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:gamestatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\gate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:gate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\reward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:reward.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\point2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:point2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\rewardfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:rewardfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\gatefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:gatefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|a:\\study\\swinburne\\cs\\cos20007\\assignments\\week 6 hd custom program\\hideout\\lib\\splashkit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAC530EB-D993-C56D-FA3B-8A711A5CCF2C}|HideOut.csproj|solutionrelative:lib\\splashkit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DrawGameState.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawGameState.cs",
+              "RelativeDocumentMoniker": "DrawGameState.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawGameState.cs",
+              "RelativeToolTip": "DrawGameState.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAvwIEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T09:22:40.645Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InputHandler.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\InputHandler.cs",
+              "RelativeDocumentMoniker": "InputHandler.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\InputHandler.cs",
+              "RelativeToolTip": "InputHandler.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAmwCEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T12:49:06.299Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameManager.cs",
+              "RelativeDocumentMoniker": "GameManager.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameManager.cs",
+              "RelativeToolTip": "GameManager.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAmwFMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T11:10:56.747Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DrawGameObject.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawGameObject.cs",
+              "RelativeDocumentMoniker": "DrawGameObject.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawGameObject.cs",
+              "RelativeToolTip": "DrawGameObject.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAmwFYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T09:53:40.437Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PositionValidation.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PositionValidation.cs",
+              "RelativeDocumentMoniker": "PositionValidation.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PositionValidation.cs",
+              "RelativeToolTip": "PositionValidation.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAmwFYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T00:51:20.35Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Character.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Character.cs",
+              "RelativeDocumentMoniker": "Character.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Character.cs",
+              "RelativeToolTip": "Character.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAmwAEBAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T14:28:15.786Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Saver.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Saver.cs",
+              "RelativeDocumentMoniker": "Saver.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Saver.cs",
+              "RelativeToolTip": "Saver.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAnwHAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:26:15.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProjectileFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ProjectileFactory.cs",
+              "RelativeDocumentMoniker": "ProjectileFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ProjectileFactory.cs",
+              "RelativeToolTip": "ProjectileFactory.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwBYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T14:42:14.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EffectFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\EffectFactory.cs",
+              "RelativeDocumentMoniker": "EffectFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\EffectFactory.cs",
+              "RelativeToolTip": "EffectFactory.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwB4AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T10:25:01.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WeaponFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\WeaponFactory.cs",
+              "RelativeDocumentMoniker": "WeaponFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\WeaponFactory.cs",
+              "RelativeToolTip": "WeaponFactory.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBcAAADiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T13:42:03.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RangeWeaponFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeWeaponFactory.cs",
+              "RelativeDocumentMoniker": "RangeWeaponFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeWeaponFactory.cs",
+              "RelativeToolTip": "RangeWeaponFactory.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAwwCkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T15:00:54.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlayerFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PlayerFactory.cs",
+              "RelativeDocumentMoniker": "PlayerFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PlayerFactory.cs",
+              "RelativeToolTip": "PlayerFactory.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBoAAACuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T06:04:07.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MeleeWeaponFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeWeaponFactory.cs",
+              "RelativeDocumentMoniker": "MeleeWeaponFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeWeaponFactory.cs",
+              "RelativeToolTip": "MeleeWeaponFactory.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T16:19:08.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MeleeWeapon.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeWeapon.cs",
+              "RelativeDocumentMoniker": "MeleeWeapon.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeWeapon.cs",
+              "RelativeToolTip": "MeleeWeapon.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAEwFoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:13:10.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Item.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Item.cs",
+              "RelativeDocumentMoniker": "Item.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Item.cs",
+              "RelativeToolTip": "Item.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAArwD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T07:19:26.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Direction.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Direction.cs",
+              "RelativeDocumentMoniker": "Direction.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Direction.cs",
+              "RelativeToolTip": "Direction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T14:12:58.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GameState.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameState.cs",
+              "RelativeDocumentMoniker": "GameState.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameState.cs",
+              "RelativeToolTip": "GameState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T08:48:44.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CharacterType.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\CharacterType.cs",
+              "RelativeDocumentMoniker": "CharacterType.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\CharacterType.cs",
+              "RelativeToolTip": "CharacterType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T05:22:18.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BuffLoader.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BuffLoader.cs",
+              "RelativeDocumentMoniker": "BuffLoader.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BuffLoader.cs",
+              "RelativeToolTip": "BuffLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T11:39:08.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CharacterLoader.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\CharacterLoader.cs",
+              "RelativeDocumentMoniker": "CharacterLoader.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\CharacterLoader.cs",
+              "RelativeToolTip": "CharacterLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T10:43:44.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ClassType.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ClassType.cs",
+              "RelativeDocumentMoniker": "ClassType.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ClassType.cs",
+              "RelativeToolTip": "ClassType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T08:41:50.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IItemFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\IItemFactory.cs",
+              "RelativeDocumentMoniker": "IItemFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\IItemFactory.cs",
+              "RelativeToolTip": "IItemFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T16:15:18.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ICharacterFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ICharacterFactory.cs",
+              "RelativeDocumentMoniker": "ICharacterFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ICharacterFactory.cs",
+              "RelativeToolTip": "ICharacterFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T02:54:00.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IGameObject.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\IGameObject.cs",
+              "RelativeDocumentMoniker": "IGameObject.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\IGameObject.cs",
+              "RelativeToolTip": "IGameObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T05:31:43.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RangeWeapon.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeWeapon.cs",
+              "RelativeDocumentMoniker": "RangeWeapon.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeWeapon.cs",
+              "RelativeToolTip": "RangeWeapon.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAuwCUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T13:28:27.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Enemy.cs",
+              "RelativeDocumentMoniker": "Enemy.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Enemy.cs",
+              "RelativeToolTip": "Enemy.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAgwB8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T04:04:24.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DrawingComponent.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawingComponent.cs",
+              "RelativeDocumentMoniker": "DrawingComponent.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawingComponent.cs",
+              "RelativeToolTip": "DrawingComponent.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T00:29:58.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DrawStatusBoard.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawStatusBoard.cs",
+              "RelativeDocumentMoniker": "DrawStatusBoard.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawStatusBoard.cs",
+              "RelativeToolTip": "DrawStatusBoard.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAEkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T13:47:15.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DrawText.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawText.cs",
+              "RelativeDocumentMoniker": "DrawText.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawText.cs",
+              "RelativeToolTip": "DrawText.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAjwC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:08:06.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Projectile.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Projectile.cs",
+              "RelativeDocumentMoniker": "Projectile.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Projectile.cs",
+              "RelativeToolTip": "Projectile.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAvwHsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T11:35:22.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Spawner.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Spawner.cs",
+              "RelativeDocumentMoniker": "Spawner.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Spawner.cs",
+              "RelativeToolTip": "Spawner.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDUAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T03:10:09.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Effect.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Effect.cs",
+              "RelativeDocumentMoniker": "Effect.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Effect.cs",
+              "RelativeToolTip": "Effect.cs",
+              "ViewState": "AgIAADIAAABgQTZKCsMswDgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T14:48:12.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Weapon.cs",
+              "RelativeDocumentMoniker": "Weapon.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Weapon.cs",
+              "RelativeToolTip": "Weapon.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T12:37:08.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Inventory.cs",
+              "RelativeDocumentMoniker": "Inventory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Inventory.cs",
+              "RelativeToolTip": "Inventory.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwCYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T03:10:16.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Player.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAkwIAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T04:00:17.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Loader.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Loader.cs",
+              "RelativeDocumentMoniker": "Loader.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Loader.cs",
+              "RelativeToolTip": "Loader.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAADgv5cAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T13:51:29.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Potion.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Potion.cs",
+              "RelativeDocumentMoniker": "Potion.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Potion.cs",
+              "RelativeToolTip": "Potion.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T10:07:02.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "PotionFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PotionFactory.cs",
+              "RelativeDocumentMoniker": "PotionFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\PotionFactory.cs",
+              "RelativeToolTip": "PotionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T14:24:13.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T12:13:09.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "RangeEnemy.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeEnemy.cs",
+              "RelativeDocumentMoniker": "RangeEnemy.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RangeEnemy.cs",
+              "RelativeToolTip": "RangeEnemy.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwBYAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T14:37:38.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "EnemyFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\EnemyFactory.cs",
+              "RelativeDocumentMoniker": "EnemyFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\EnemyFactory.cs",
+              "RelativeToolTip": "EnemyFactory.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowB4AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T13:31:08.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "MeleeEnemy.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeEnemy.cs",
+              "RelativeDocumentMoniker": "MeleeEnemy.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\MeleeEnemy.cs",
+              "RelativeToolTip": "MeleeEnemy.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwEYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T15:32:11.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Map.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Map.cs",
+              "RelativeDocumentMoniker": "Map.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Map.cs",
+              "RelativeToolTip": "Map.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAewBsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T12:18:05.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "StreamExtension.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\StreamExtension.cs",
+              "RelativeDocumentMoniker": "StreamExtension.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\StreamExtension.cs",
+              "RelativeToolTip": "StreamExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T16:26:49.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "BuffManager.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BuffManager.cs",
+              "RelativeDocumentMoniker": "BuffManager.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BuffManager.cs",
+              "RelativeToolTip": "BuffManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T14:40:22.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "HideOut.csproj",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\HideOut.csproj",
+              "RelativeDocumentMoniker": "HideOut.csproj",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\HideOut.csproj",
+              "RelativeToolTip": "HideOut.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-05T00:51:54.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "DrawRoom.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawRoom.cs",
+              "RelativeDocumentMoniker": "DrawRoom.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawRoom.cs",
+              "RelativeToolTip": "DrawRoom.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAArwCMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T09:07:29.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ItemDrop.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ItemDrop.cs",
+              "RelativeDocumentMoniker": "ItemDrop.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ItemDrop.cs",
+              "RelativeToolTip": "ItemDrop.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T12:33:25.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "BitmapExtensions.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BitmapExtensions.cs",
+              "RelativeDocumentMoniker": "BitmapExtensions.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\BitmapExtensions.cs",
+              "RelativeToolTip": "BitmapExtensions.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAUwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T14:38:24.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "SetUp.txt",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Resource\\SetUp.txt",
+              "RelativeDocumentMoniker": "Resource\\SetUp.txt",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Resource\\SetUp.txt",
+              "RelativeToolTip": "Resource\\SetUp.txt",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-03-07T15:19:47.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Room.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Room.cs",
+              "RelativeDocumentMoniker": "Room.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Room.cs",
+              "RelativeToolTip": "Room.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAiwFYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T10:43:16.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "DrawMap.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawMap.cs",
+              "RelativeDocumentMoniker": "DrawMap.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\DrawMap.cs",
+              "RelativeToolTip": "DrawMap.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvyIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T12:45:01.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "ItemType.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ItemType.cs",
+              "RelativeDocumentMoniker": "ItemType.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\ItemType.cs",
+              "RelativeToolTip": "ItemType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T11:34:10.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "GameStateManager.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameStateManager.cs",
+              "RelativeDocumentMoniker": "GameStateManager.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GameStateManager.cs",
+              "RelativeToolTip": "GameStateManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T08:51:05.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Gate.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Gate.cs",
+              "RelativeDocumentMoniker": "Gate.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Gate.cs",
+              "RelativeToolTip": "Gate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAlwAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T10:23:04.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "README.md",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-22T11:08:12.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Reward.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Reward.cs",
+              "RelativeDocumentMoniker": "Reward.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Reward.cs",
+              "RelativeToolTip": "Reward.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADgvxkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T09:54:26.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Point2D.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Point2D.cs",
+              "RelativeDocumentMoniker": "Point2D.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\Point2D.cs",
+              "RelativeToolTip": "Point2D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T10:58:39.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "RewardFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RewardFactory.cs",
+              "RelativeDocumentMoniker": "RewardFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\RewardFactory.cs",
+              "RelativeToolTip": "RewardFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T15:30:41.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "GateFactory.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GateFactory.cs",
+              "RelativeDocumentMoniker": "GateFactory.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\GateFactory.cs",
+              "RelativeToolTip": "GateFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T10:28:24.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "SplashKit.cs",
+              "DocumentMoniker": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\lib\\SplashKit.cs",
+              "RelativeDocumentMoniker": "lib\\SplashKit.cs",
+              "ToolTip": "A:\\Study\\Swinburne\\CS\\COS20007\\Assignments\\Week 6 HD Custom Program\\HideOut\\lib\\SplashKit.cs",
+              "RelativeToolTip": "lib\\SplashKit.cs",
+              "ViewState": "AgIAAOUBAAAAAAAAAAAAAO4BAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T01:31:42.672Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
