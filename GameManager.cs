@@ -84,9 +84,9 @@ namespace HideOut
             {
                 // Only allow theme 0 and 1 for level 1-3
                 theme = SplashKit.Rnd(0, 2);
-            } else if (_saver.Level == 7 || _saver.Level == 10)
+            } else if (_saver.Level  == 10)
             {
-                theme = 3;
+                theme = 2;
             }
             _theme = theme;
             Console.WriteLine($"Theme: {_theme}");
@@ -102,6 +102,10 @@ namespace HideOut
             {
                 _loader.LoadSaveGame(ref _player, ref _saver, ref _playerFactory, ref _enemyFactory, ref buffManager
                                     , ref _weaponFactory, ref _items);
+                if(_saver.Level == 10)
+                {
+                    _theme = 2;
+                }
                 EnemyFactory tempEF = (EnemyFactory)_enemyFactory;
                 PlayerFactory tempPF = (PlayerFactory)_playerFactory;
                 Console.WriteLine($"PlayerFactory: {tempPF.BonusHP} {tempPF.BonusEnergy} {tempPF.BonusArmor} {tempPF.BonusSpeed}");
