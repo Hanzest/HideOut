@@ -409,6 +409,18 @@ namespace HideOut
         {
             get { return _saver; }
         }
+        public bool CanContinue()
+        {
+            return _saver.IsAbleToContinue;
+        }
+        public bool AlreadySaved()
+        {
+            return _saver.IsSaved;
+        }
+        public int CurrentLevel()
+        {
+            return _saver.Level;
+        }
         public bool IsSetUp
         {
             get { return _isSetUp; }

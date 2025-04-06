@@ -140,7 +140,7 @@ namespace HideOut
             {
                 _gameManager.Update();
 
-                if (_gameManager.Saver.IsAbleToContinue == false)
+                if (_gameManager.CanContinue() == false)
                 {
                     _gameStateManager.SetState(GameState.NotAbleToContinue);
                 }
@@ -149,9 +149,9 @@ namespace HideOut
                 {
                     _gameStateManager.SetState(GameState.LoseGame);
                 }
-                else if (_gameManager.Saver.IsSaved == true)
+                else if (_gameManager.AlreadySaved() == true)
                 {
-                    if (_gameManager.Saver.Level <= 10)
+                    if (_gameManager.CurrentLevel() <= 10)
                     {
                         _saver.IsSaved = false;
                         _gameStateManager.SetState(GameState.BuffPurchase);
@@ -163,7 +163,7 @@ namespace HideOut
                 }
                 else
                 {
-                    if (_gameManager.Saver.IsAbleToContinue == true)
+                    if (_gameManager.CanContinue() == true)
                     {
                         _gameManager.Draw();
                     } else

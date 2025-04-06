@@ -19,6 +19,7 @@ namespace HideOut
         private int _adder;
         private bool _isClear;
         private bool _isPlayerEnter;
+
         public Room(int roomNumber, int adder, int roomIndex) // 0: Start, 1: End, 2: Normal Room, 3: Path
         {
             _tileSize = 48;
@@ -116,7 +117,7 @@ namespace HideOut
         // 2: VWall
         // 3: Barrier
         // Type of Room (_roomNumber):
-        // 0: Start, 1: End, 2: Normal Room, 3: Path
+        // 0: Start, 1: End, 2: Dungeon Room, 3: Path
 
         // Normal Room:         Start:               End:                 Path:
         // 2 1 1 1 1 1 2        2 1 1 1 2            2 1 1 1 2            1 1 1 1 1
@@ -127,102 +128,6 @@ namespace HideOut
         // 2 0 0 0 0 0 2
         // 2 1 1 1 1 1 2
 
-        public void GenerateRoom()
-        {
-            if (_roomNumber != 3)
-            {
-                for (int i = 0; i < _roomSize; i++)
-                {
-                    for (int j = 0; j < _roomSize; j++)
-                    {
-                        if (i == 0 || i == _roomSize - 1 || j == 0 || j == _roomSize - 1)
-                        {
-                            _roomArray[i, j] = 2;
-                            if (i == 0 && (1 <= j && j <= _roomSize - 2)
-                                || i == _roomSize - 1)
-                            {
-                                _roomArray[i, j] = 1;
-                            }
-                        }
-                        else
-                        {
-                            int rnd = SplashKit.Rnd(0, 3);
-                            _roomArray[i, j] = 0 + rnd * 10;
-                            
-                            if(4 <= i && i <= _roomSize - 5 &&
-                               4 <= j && j <= _roomSize - 5 && _roomNumber == 2)
-                            {
-                                int rnd2 = SplashKit.Rnd(0, 100);
-                                if (rnd2 < 20)
-                                {
-                                    bool ok = true;
-                                    for(int x = i - 4; x <= i; x++)
-                                    {
-                                        for (int y = j - 4; y <= j; y++)
-                                        {
-                                            if(_roomArray[x, y] == 3)
-                                            {
-                                                ok = false;
-                                            }
-                                        }
-                                    }
-                                    if (ok)
-                                    {
-                                        _roomArray[i, j] = 3;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                switch (_roomNumber)
-                {
-                    case 0:
-                        // Start Room
-                        for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
-                        {
-                            _roomArray[i, _roomSize - 1] = 0;
-                        }
-                        _roomArray[_roomSize / 2 - 3, _roomSize - 1] = 1;
-                        break;
-                    case 1:
-                        // End Room
-                        for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
-                        {
-                            _roomArray[i, 0] = 0;
-                        }
-                        _roomArray[_roomSize / 2 - 3, 0] = 1;
-                        break;
-                    case 2:
-                        // Normal room
-                        for (int i = _roomSize / 2 - 2; i <= _roomSize / 2 + 2; i++)
-                        {
-                            _roomArray[i, 0] = 0;
-                            //_roomArray[i, _roomSize - 1] = 0;
-                        }
-                        _roomArray[_roomSize / 2 - 3, _roomSize - 1] = 1;
-                        _roomArray[_roomSize / 2 - 3, 0] = 1;
-                        break;
-                }
-            } else
-            {
-                for (int i = 0; i < _roomSize; i++)
-                {
-                    for (int j = 0; j < _roomSize * 3; j++)
-                    {
-                        if (i == 0 || i == _roomSize - 1)
-                        {
-                            _roomArray[i, j] = 1;
-                        }
-                        else
-                        {
-                            _roomArray[i, j] = 0;
-                        }
-                    }
-                }
-            }
-
-        }
         public int [,] RoomArray{
             get { return _roomArray; }
         }
