@@ -197,5 +197,13 @@ namespace HideOut
             _pathItem = pathItem;
             _pathProjectile = pathProjectile;
         }
+        public void Free()
+        {
+            foreach (Bitmap bmp in _bitmap)
+            {
+                bmp.Free();
+            }
+            _bitmap.Clear();
+        }
     }
 }

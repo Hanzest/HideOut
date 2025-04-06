@@ -59,7 +59,7 @@ namespace HideOut
             _buffLoader.Load(_buffBitmaps);
             _buffIndex1 = SplashKit.Rnd(0, _buffBitmaps.Count);
             _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
-            _bmpCoin = new Bitmap("Coin", "Resource\\Icons\\Coin.png");
+            _bmpCoin = new Bitmap("coinDup", "Resource\\Icons\\coinDup.png");
             _instruction = new Bitmap("Instruction", "Resource\\Console\\Instruction.png");
         }
 
@@ -258,6 +258,7 @@ namespace HideOut
                 _buffIndex2 = SplashKit.Rnd(0, _buffBitmaps.Count);
                 _gameManager.FreeAll();
                 // clear data of game Manager, set local saver to false
+                _bmpCoin = SplashKit.LoadBitmap("coinDup", "Resource\\Icons\\coinDup.png");
                 _saver.IsSaved = true;
             }
             int cnt = 0;
@@ -310,7 +311,9 @@ namespace HideOut
             _drawText.DrawMontserratH4LeftAlign($"Level: {_buffManager.GetBuffIndex(_buffIndex2)} (Max: 2)", cardX2 + 25, cardY1 + 425, Color.Black);
 
             _drawText.DrawH1($"{_saver.Coin}", 1300 + 50, 40 + 68);
+
             _bmpCoin.Draw(1300, 40);
+
             _drawingComponent.DrawHoveringRectangle(_mouseX, _mouseY, Color.RGBColor(117, 124, 106), Color.RGBColor(0, 216, 68), Color.RGBColor(0, 118, 38), 550, 750, 500, 150);
             _drawText.DrawMontserratH4Custom("Heal 20HP for 50 Coins", 785, 775, Color.Black);
             _drawText.DrawMontserratH4Custom($"Current HP: {_saver.Health} / {_saver.MaxHealth}", 800, 835, Color.Black);

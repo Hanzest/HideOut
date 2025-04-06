@@ -94,7 +94,8 @@ namespace HideOut
             float distToCenter = (float)Math.Sqrt((posx - centerX) * (posx - centerX) + (posy - centerY) * (posy - centerY));
             float anticipatedX = centerX + distToCenter * (float)Math.Cos(angle);
             float anticipatedY = centerY + distToCenter * (float)Math.Sin(angle);
-            if (PointInRectangle(anticipatedX, anticipatedY, centerX - width / 2, centerX + width / 2, centerY - height / 2, centerY + height / 2))
+            if (PointInRectangle(anticipatedX, anticipatedY, centerX - width / 2, centerX + width / 2,
+                                                             centerY - height / 2, centerY + height / 2))
             {
                 return true;
             }

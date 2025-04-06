@@ -400,6 +400,7 @@ namespace HideOut
             {
                 _effects.Remove(effect);
             }
+            _drawGameObject.Free();
             _isNotLost = true;
             _isBuffUpdated = false;
             _isSetUp = false;
