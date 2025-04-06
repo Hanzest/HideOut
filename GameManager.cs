@@ -89,13 +89,8 @@ namespace HideOut
                 theme = 2;
             }
             _theme = theme;
-            Console.WriteLine($"Theme: {_theme}");
-            _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, _theme);
-            _map = new Map();
             
-            Console.WriteLine($"Level: {_saver.Level}");
-            _map.GenerateMap();
-            _isFreeAll = false;
+            
             _player = (Player)_playerFactory.Create(_name, 250, 0);
             if (isStartGame == false)
                 // Continue playing
@@ -142,6 +137,19 @@ namespace HideOut
                 saver.IsAbleToContinue = true;
                 isStartGame = false; // Set for later load
             }
+            if(_saver.Level == 10)
+            {
+                _theme = 2;
+            } else if(_saver.Level <= 3 && _theme == 2)
+            {
+                _theme = SplashKit.Rnd(0, 2);
+            }
+            _loader.LoadResource(_drawGameObject, _drawMap, _drawStatusBoard, _spawner, _theme);
+            _map = new Map();
+            _isFreeAll = false;
+            Console.WriteLine($"Theme: {_theme}");
+            Console.WriteLine($"Level: {_saver.Level}");
+            _map.GenerateMap();
             _spawner.SetUpRoom(_characters, _items, _map.Rooms, _enemyFactory, _gateFactory, _theme);
             
             _characters.Add(_player);

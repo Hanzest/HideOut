@@ -210,3 +210,4 @@ A:\Study\Swinburne\CS\COS20007\Assignments\Week 6 HD Custom Program\HideOut\bin\
 A:\Study\Swinburne\CS\COS20007\Assignments\Week 6 HD Custom Program\HideOut\bin\Debug\net9.0\Resource\Items\flipPlutonium.png
 A:\Study\Swinburne\CS\COS20007\Assignments\Week 6 HD Custom Program\HideOut\bin\Debug\net9.0\Resource\Items\Plutonium.png
 A:\Study\Swinburne\CS\COS20007\Assignments\Week 6 HD Custom Program\HideOut\bin\Debug\net9.0\Resource\Projectiles\Plutoniumball.png
+A:\Study\Swinburne\CS\COS20007\Assignments\Week 6 HD Custom Program\HideOut\bin\Debug\net9.0\Resource\Icons\coinDup.png

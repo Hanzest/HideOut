@@ -160,6 +160,7 @@ namespace HideOut
                         characterIndex %= characterMaxIndex;
                     } else if (isLeftClick && PositionValidation.PointInRectangle(mouseX, mouseY, 575, 1025, 720, 820))
                     {
+                        buffManager.ResetBuff();
                         gameStateManager.SetState(GameState.DuringStage);
                     }
                         break;

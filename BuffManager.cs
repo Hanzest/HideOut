@@ -45,6 +45,13 @@ namespace HideOut
                 }
             }
         }
+        public void ResetBuff()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                _buffArray[i] = 0;
+            }
+        }
         public void UpgradeBuff(int index)
         {
             _buffArray[index]++;
